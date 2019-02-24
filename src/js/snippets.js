@@ -1,7 +1,15 @@
-function returnCode(code) {
+export default function returnCode(code) {
   switch (code) {
     case 'php':
-      return "&lt;?php<br><br>require dirname(__DIR__) . '/vendor/autoload.php';<br><br>error_reporting(E_ALL);<br>set_error_handler('CoreError::errorHandler');<br>set_exception_handler('CoreError::exceptionHandler');<br><br>$router = new CoreRouter();<br>$router->dispatch($_SERVER['REQUEST_URI']);<br>";
+      return `<pre><?php
+      
+require dirname(__DIR__) . '/vendor/autoload.php';
+
+error_reporting(E_ALL);<br>set_error_handler('CoreError::errorHandler');
+set_exception_handler('CoreError::exceptionHandler');
+
+$router = new CoreRouter();
+$router->dispatch($_SERVER['REQUEST_URI']);</pre>`;
 
     case 'js':
       return `<pre>function navigate(url, data, complete) {
@@ -19,7 +27,7 @@ prevData = store.data.pop();
 if(fallback) store.fallback = fallback;
 
 load(previous, prevData);
-}<pre>`;
+}</pre>`;
 
     case 'jquery':
       return `<pre>    $(".feedbackList").on('click', '.reply', function() {
@@ -60,7 +68,17 @@ $('.placeholder').on("keypress", "#messageInput", function(e){
     }
 });</pre>`;
     case 'mysql':
-      return "CREATE TABLE Users (<br>&nbsp;&nbsp;&nbsp;&nbsp;usId int IDENTITY(1,1) PRIMARY KEY,<br>&nbsp;&nbsp;&nbsp;&nbsp;usLastName varchar(255) NOT NULL,<br>&nbsp;&nbsp;&nbsp;&nbsp;usFirstName varchar(255),<br>&nbsp;&nbsp;&nbsp;&nbsp;usAge int<br>);<br><br>INSERT INTO Users (usLastName, usFirstName, usAge)<br>SELECT clSurname, clFirstInitial, ROUND(DATEDIFF(NOW(), clBirthDate), 365.25) as 'clAge' <br>FROM clients <br>WHERE clId = '1'";
+      return `<pre>CREATE TABLE Users (
+    usId int IDENTITY(1,1) PRIMARY KEY,
+    usLastName varchar(255) NOT NULL,
+    usFirstName varchar(255),
+    usAge int
+);
+
+INSERT INTO Users (usLastName, usFirstName, usAge)
+SELECT clSurname, clFirstInitial, ROUND(DATEDIFF(NOW(), clBirthDate), 365.25) as 'clAge' 
+FROM clients 
+WHERE clId = '1'</pre>`;
 
     case 'json':
       return `<pre>{"claims":[{
@@ -90,10 +108,35 @@ $('.placeholder').on("keypress", "#messageInput", function(e){
 }</pre>`;
 
     case 'swift':
-      return "class ClaimLogController: UIViewController {<br>&nbsp;&nbsp;&nbsp;&nbsp;override func viewDidLoad() {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; super.viewDidLoad()<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; setupLogo()<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}<br><br>extension UIViewController {<br>&nbsp;&nbsp;&nbsp;&nbsp; func setupLogo() {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    let imageView = UIImageView()<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    imageView.contentMode = .scaleAspectFit<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    imageView.image = UIImage(named: 'logo')<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; self.navigationItem.titleView = imageView<br>&nbsp;&nbsp;&nbsp;&nbsp; }<br>}";
+      return `<pre>class ClaimLogController: UIViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupLogo()
+    }
+}
+
+extension UIViewController {
+    func setupLogo() {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        imageView.image = UIImage(named: 'logo')
+        self.navigationItem.titleView = imageView
+    }
+}</pre>`;
 
     case 'kotlin':
-      return 'override fun onCreate(savedInstanceState: Bundle?) { <br>&nbsp;&nbsp;&nbsp;&nbsp; setTheme(R.style.AppTheme)<br>&nbsp;&nbsp;&nbsp;&nbsp; super.onCreate(savedInstanceState)<br>&nbsp;&nbsp;&nbsp;&nbsp; setContentView(layoutRes())<br>&nbsp;&nbsp;&nbsp;&nbsp; startNav(graphStart())<br><br>&nbsp;&nbsp;&nbsp;&nbsp; val app = application as App<br>&nbsp;&nbsp;&nbsp;&nbsp; component = DaggerActivityComponent.builder()<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .activityModule(ActivityModule(this, navController))<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .appComponent(app.component)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .build()<br>&nbsp;&nbsp;&nbsp;&nbsp; onInject()<br> } ';
+      return `<pre>override fun onCreate(savedInstanceState: Bundle?) { 
+    setTheme(R.style.AppTheme)
+    super.onCreate(savedInstanceState)
+    setContentView(layoutRes())
+    startNav(graphStart())
+    val app = application as App
+    component = DaggerActivityComponent.builder()
+        .activityModule(ActivityModule(this, navController))
+        .appComponent(app.component)
+        .build()
+    onInject()
+}</re>`;
 
     case 'css':
       return `<pre>@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700');

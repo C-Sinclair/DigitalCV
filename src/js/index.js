@@ -14,7 +14,7 @@ import kotlinsvg from '../img/icons/kotlin.svg';
 // Styles
 import '../styles/main.sass';
 
-import './snippets';
+import returnCode from './snippets';
 
 var openDraw = false;
 var size = 200;
