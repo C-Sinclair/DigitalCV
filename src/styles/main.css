@@ -61,6 +61,10 @@ header img:hover {
   transition: width 1s ease-out 1s;
 }
 
+#profileName::after.stuck {
+  width: calc(100% + 40px);
+}
+
 #profileName strong {
   letter-spacing: 30px;
   font-size: 1.2em;
@@ -75,7 +79,21 @@ header img:hover {
   top: 50px;
   width: 100%;
   text-align: center;
-  transition: all 1s ease-in;
+  transition: top 1s ease-in, margin-left 1s ease-in;
+}
+
+#profileName .iconHolder {
+  display: flex;
+  justify-content: space-between;
+  width: 80px;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+
+#profileName .iconHolder img {
+  width: 20px;
+  height: 30px;
 }
 
 #profileName .profilePic {
@@ -103,12 +121,30 @@ header img:hover {
   text-align: center;
 }
 
-#profileName .stuck {
+#profileName #conor {
+  width: 200px;
+  height: 200px;
+  border-radius: 200px;
+  border: gold 2px solid;
+  margin: 20px;
+  z-index: 22;
+  transition: width 1s ease-in, height 1s ease-in, top 2s ease-in, left 2s ease-in;
+}
+
+#profileName #conor.stuck {
+  width: 50px;
+  height: 50px;
+}
+
+#profileName.stuck {
   position: fixed;
+}
+
+#profileName.stuck::after {
   width: calc(100% + 40px);
 }
 
-#profileName .stuck .imgHolder {
+#profileName.stuck .imgHolder {
   top: -10px;
   margin-left: -340px;
 }
@@ -287,29 +323,6 @@ footer img:hover {
 
 #pform {
   justify-content: start;
-}
-
-#conor {
-  width: 200px;
-  height: 200px;
-  border-radius: 200px;
-  border: gold 2px solid;
-  margin: 20px;
-  z-index: 22;
-  transition: width 1s ease-in, height 1s ease-in, top 2s ease-in, left 2s ease-in;
-}
-
-#conor .stuck {
-  width: 50px;
-  height: 50px;
-}
-
-#mustache {
-  position: absolute;
-  bottom: 0px;
-  height: 50px;
-  left: calc(50% - 90px);
-  z-index: -10;
 }
 
 #php,

@@ -11,6 +11,31 @@ import phpsvg from '../img/icons/php.svg';
 import swiftsvg from '../img/icons/swift.svg';
 import kotlinsvg from '../img/icons/kotlin.svg';
 
+// Profile Pic
+import conorsvg from '../img/icons/conor.svg'
+
+// Programs Icons
+import illustsvg from '../img/icons/illustrator.svg'
+import vssvg from '../img/icons/vscode.png'
+import androidsvg from '../img/icons/androidstudio.png'
+import krakensvg from '../img/icons/gitkraken.png'
+import xcodesvg from '../img/icons/xcode.png'
+import ablesvg from '../img/icons/ableton.png'
+
+// Tech Icons
+import webpsvg from '../img/icons/webpack.svg'
+import sasssvg from '../img/icons/sass.png'
+import gitsvg from '../img/icons/git.png'
+import gulpsvg from '../img/icons/gulp.svg'
+
+// Generic Icons
+import phonesvg from '../img/icons/phone.svg'
+import sendsvg from '../img/icons/send.svg'
+
+// Projects
+const pformImgs = importAll(require.context('../img/screenshots/pform', false, /\.(png|jpe?g|svg)$/))
+const dcpImgs = importAll(require.context('../img/screenshots/dcpfm', false, /\.(png|jpe?g|svg)$/))
+
 // Styles
 import '../styles/main.sass';
 
@@ -21,10 +46,9 @@ var size = 200;
 
 var codeDrawer = document.getElementById('codeDrawer');
 var codeText = document.querySelector('#codeDrawer p.code');
-var headerImg = document.querySelectorAll('header img');
 var upArrow = document.querySelector('.up-arrow');
-var profileName = document.getElementById('#profileName');
-var pic = document.getElementById('#conor');
+var profileName = document.getElementById('profileName');
+var pic = document.getElementById('conor');
 
 var htmlIcon = document.getElementById('html');
 htmlIcon.src = html5svg;
@@ -87,6 +111,44 @@ function langClick(element) {
   codeDrawer.classList.add('show');
 }
 
+var conor = document.getElementById('conor')
+conor.src = conorsvg
+
+var phoneIcon = document.getElementById('phone')
+phoneIcon.src = phonesvg
+
+var sendIcon = document.getElementById('mail')
+sendIcon.src = sendsvg
+
+// Programs 
+var illustIcon = document.getElementById('illustrator')
+illustIcon.src = illustsvg
+
+var vsIcon = document.getElementById('vscode')
+vsIcon.src = vssvg
+
+var androidIcon = document.getElementById('androidstudio')
+androidIcon.src = androidsvg
+
+var krakenIcon = document.getElementById('gitkraken')
+krakenIcon.src = krakensvg
+
+var xcIcon = document.getElementById('xcode')
+xcIcon.src = xcodesvg
+
+// Tools
+var gitIcon = document.getElementById('git')
+gitIcon.src = gitsvg
+
+var sassIcon = document.getElementById('sass')
+sassIcon.src = sasssvg
+
+var webpIcon = document.getElementById('webpack')
+webpIcon.src = webpsvg
+
+var gulpIcon = document.getElementById('gulp')
+gulpIcon.src = gulpsvg
+
 window.onscroll = (e) => {
     if (document.documentElement.scrollTop >= 100 && !openDraw) {
         profileName.classList.add('stuck');
@@ -99,4 +161,10 @@ window.onscroll = (e) => {
         profileName.classList.remove('stuck');
         pic.classList.remove('stuck');
     }   
+}
+
+function importAll(r) {
+    let images = {};
+    r.keys().map((item, index) => { images[item.replace('./', '')] = r(item); });
+    return images;
 }

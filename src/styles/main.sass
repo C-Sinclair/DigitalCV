@@ -17,7 +17,6 @@ body
     margin: 0
     padding-bottom: 50px
 
-
 h1, h2, h3, h4, h5, h6 
     color: $lgtgrey
 
@@ -59,6 +58,8 @@ header
         width: 0
         margin-left: -20px
         transition: width 1s ease-out 1s
+        &.stuck
+            width: calc(100% + 40px)
     strong 
         letter-spacing: 30px
         font-size: 1.2em
@@ -71,7 +72,17 @@ header
         top: 50px
         width: 100%
         text-align: center
-        transition: all 1s ease-in
+        transition: top 1s ease-in, margin-left 1s ease-in
+    .iconHolder 
+        display: flex
+        justify-content: space-between
+        width: 80px
+        position: absolute
+        right: 20px
+        top: 20px
+        img 
+            width: 20px
+            height: 30px
     .profilePic 
         display: flex
         justify-content: space-between
@@ -89,10 +100,21 @@ header
             margin: 0 20px
             color: $lgtgrey
             text-align: center
-    .stuck 
+    #conor 
+        width: 200px
+        height: 200px
+        border-radius: 200px
+        border: gold 2px solid
+        margin: 20px
+        z-index: 22
+        transition: width 1s ease-in, height 1s ease-in, top 2s ease-in, left 2s ease-in
+        &.stuck 
+            width: 50px
+            height: 50px
+    &.stuck 
         position: fixed
-        &::after 
-        width: calc(100% + 40px)
+        &::after
+            width: calc(100% + 40px)
         .imgHolder 
             top: -10px
             margin-left: -340px
@@ -227,25 +249,6 @@ footer
 
 #pform 
     justify-content: start
-
-#conor 
-    width: 200px
-    height: 200px
-    border-radius: 200px
-    border: gold 2px solid
-    margin: 20px
-    z-index: 22
-    transition: width 1s ease-in, height 1s ease-in, top 2s ease-in, left 2s ease-in
-    .stuck 
-        width: 50px
-        height: 50px
-
-#mustache 
-    position: absolute
-    bottom: 0px
-    height: 50px
-    left: calc(50% - 90px)
-    z-index: -10
 
 #php,
 #mysql 
