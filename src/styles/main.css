@@ -1,0 +1,323 @@
+@import url("https://fonts.googleapis.com/css?family=Oswald:300,400,600");
+body {
+  background: #789F8A;
+  display: grid;
+  font-family: "Oswald", sans-serif;
+  color: #292929;
+  margin: 0;
+  padding-bottom: 50px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #454545;
+}
+
+strong {
+  letter-spacing: 2px;
+  margin-left: 20px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul li {
+  margin: 20px;
+}
+
+header {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 25px;
+}
+
+header img {
+  width: 50px;
+  height: 50px;
+}
+
+header img:hover {
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+#profileName {
+  padding-top: 20px;
+  justify-self: center;
+  display: grid;
+  width: 100%;
+  z-index: 2;
+  background: #789F8A;
+  position: relative;
+}
+
+#profileName::after {
+  content: "";
+  border: 1px solid gold;
+  height: 0;
+  width: 0;
+  margin-left: -20px;
+  transition: width 1s ease-out 1s;
+}
+
+#profileName strong {
+  letter-spacing: 30px;
+  font-size: 1.2em;
+  color: #FFF;
+  text-align: center;
+  width: 100%;
+  padding-bottom: 10px;
+}
+
+#profileName .imgHolder {
+  position: absolute;
+  top: 50px;
+  width: 100%;
+  text-align: center;
+  transition: all 1s ease-in;
+}
+
+#profileName .profilePic {
+  display: flex;
+  justify-content: space-between;
+  width: 80px;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+
+#profileName .profilePic img {
+  width: 20px;
+  height: 30px;
+}
+
+#profileName .profilePic img:hover {
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+#profileName .profilePic div {
+  margin: 0 20px;
+  color: #454545;
+  text-align: center;
+}
+
+#profileName .stuck {
+  position: fixed;
+  width: calc(100% + 40px);
+}
+
+#profileName .stuck .imgHolder {
+  top: -10px;
+  margin-left: -340px;
+}
+
+.profile {
+  margin-top: 30px;
+  width: 100%;
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.profile h4 {
+  text-align: center;
+}
+
+.profile .imgHolder {
+  justify-self: center;
+  align-items: center;
+  position: relative;
+}
+
+.projects {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  position: relative;
+  padding: 0 20px;
+}
+
+.projects .gallery {
+  width: calc(50vw - 30px);
+  justify-content: center;
+}
+
+.projects h4 {
+  text-align: center;
+}
+
+#codeDrawer {
+  background: #000000;
+  width: 100%;
+  padding: 0px 20px;
+  position: relative;
+  height: 0;
+  overflow: hidden;
+  transition: height 0.8s ease-out;
+}
+
+#codeDrawer .show {
+  height: 300px;
+  transition: height 0.5s ease-out;
+}
+
+.code {
+  color: #EEEEEE;
+  font-family: Consolas, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New;
+  margin-bottom: 30px;
+}
+
+.up-arrow {
+  border-color: #789F8A transparent;
+  border-style: solid;
+  border-width: 0px 20px 20px 20px;
+  height: 0px;
+  width: 0px;
+  position: absolute;
+  bottom: 0px;
+  left: calc(50% - 35px);
+}
+
+.up-arrow:hover {
+  cursor: pointer;
+  transform: scale(1.5);
+}
+
+.tech {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.tech img {
+  width: 40px;
+  height: 40px;
+  margin: 5px;
+}
+
+.tech img:hover {
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+.gallery {
+  display: inline-flex;
+  overflow-x: scroll;
+  width: 300px;
+  height: 150px;
+}
+
+.gallery img {
+  height: 120px;
+  margin: 20px 10px;
+}
+
+.detailBlock {
+  margin: 0 20px;
+}
+
+.detailBlock h4 {
+  margin-left: 120px;
+}
+
+.detailBlock .imgHolder {
+  display: flex;
+}
+
+.detailBlock .imgHolder img {
+  margin: 20px;
+  align-self: center;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex.two * {
+  width: calc(50% - 20px);
+}
+
+.block {
+  background: #071425;
+  margin: 20px 50px;
+  padding: 10px;
+  border-radius: 7px;
+  box-shadow: #071425 1px 1px 2px 1px;
+}
+
+.block img {
+  height: 50px;
+}
+
+.previous .imgHolder {
+  width: 200px;
+  margin-right: 20px;
+  align-self: center;
+}
+
+.previous .imgHolder img {
+  width: 100px;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  height: 40px;
+  width: 100%;
+  z-index: 100;
+  display: flex;
+  background: #071425;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+footer img {
+  width: 20px;
+  height: 20px;
+  margin: 5px 10px;
+}
+
+footer img:hover {
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+#pform {
+  justify-content: start;
+}
+
+#conor {
+  width: 200px;
+  height: 200px;
+  border-radius: 200px;
+  border: gold 2px solid;
+  margin: 20px;
+  z-index: 22;
+  transition: width 1s ease-in, height 1s ease-in, top 2s ease-in, left 2s ease-in;
+}
+
+#conor .stuck {
+  width: 50px;
+  height: 50px;
+}
+
+#mustache {
+  position: absolute;
+  bottom: 0px;
+  height: 50px;
+  left: calc(50% - 90px);
+  z-index: -10;
+}
+
+#php,
+#mysql {
+  transform: scale(1.4);
+}
+
+#php:hover,
+#mysql:hover {
+  transform: scale(1.6);
+}

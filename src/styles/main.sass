@@ -1,0 +1,256 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald:300,400,600')
+
+$green: #789F8A
+$lilac: #A293AC
+$grey: #292929
+$lgtgrey: #454545
+$dark: #071425
+
+$font: 'Oswald', sans-serif
+$code-font: Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New
+
+body 
+    background: $green
+    display: grid
+    font-family: $font
+    color: $grey
+    margin: 0
+    padding-bottom: 50px
+
+
+h1, h2, h3, h4, h5, h6 
+    color: $lgtgrey
+
+strong 
+    letter-spacing: 2px
+    margin-left: 20px
+
+ul 
+    list-style: none
+    padding: 0
+    li 
+        margin: 20px
+
+header 
+    display: flex
+    justify-content: space-evenly
+    margin: 25px
+    img 
+        width: 50px
+        height: 50px
+        &:hover 
+
+    img:hover,
+        transform: scale(1.2)
+        cursor: pointer
+
+#profileName 
+    padding-top: 20px
+    justify-self: center
+    display: grid
+    width: 100%
+    z-index: 2
+    background: $green
+    position: relative
+    &::after 
+        content: ""
+        border: 1px solid gold
+        height: 0
+        width: 0
+        margin-left: -20px
+        transition: width 1s ease-out 1s
+    strong 
+        letter-spacing: 30px
+        font-size: 1.2em
+        color: #FFF
+        text-align: center
+        width: 100%
+        padding-bottom: 10px
+    .imgHolder 
+        position: absolute
+        top: 50px
+        width: 100%
+        text-align: center
+        transition: all 1s ease-in
+    .profilePic 
+        display: flex
+        justify-content: space-between
+        width: 80px
+        position: absolute
+        right: 20px
+        top: 20px
+        img 
+            width: 20px
+            height: 30px
+            &:hover
+                transform: scale(1.2)
+                cursor: pointer
+        div 
+            margin: 0 20px
+            color: $lgtgrey
+            text-align: center
+    .stuck 
+        position: fixed
+        &::after 
+        width: calc(100% + 40px)
+        .imgHolder 
+            top: -10px
+            margin-left: -340px
+
+.profile 
+    margin-top: 30px
+    width: 100%
+    position: relative
+    display: grid
+    grid-template-columns: 1fr 1fr 1fr
+    h4
+        text-align: center
+    .imgHolder 
+        justify-self: center
+        align-items: center
+        position: relative
+
+.projects 
+    display: grid
+    grid-template-columns: 1fr 1fr
+    width: 100%
+    position: relative
+    padding: 0 20px
+    .gallery 
+        width: calc(50vw - 30px)
+        justify-content: center
+    h4 
+        text-align: center
+    
+#codeDrawer 
+    background: #000000
+    width: 100%
+    padding: 0px 20px
+    position: relative
+    height: 0
+    overflow: hidden
+    transition: height 0.8s ease-out
+    .show 
+        height: 300px
+        transition: height 0.5s ease-out
+    
+.code 
+    color: #EEEEEE
+    font-family: $code-font
+    margin-bottom: 30px
+
+.up-arrow 
+    border-color: $green transparent
+    border-style: solid
+    border-width: 0px 20px 20px 20px
+    height: 0px
+    width: 0px
+    position: absolute
+    bottom: 0px
+    left: calc(50% - 35px)
+    &:hover 
+        cursor: pointer
+        transform: scale(1.5)
+
+.tech 
+    display: flex
+    justify-content: space-between
+    flex-wrap: wrap
+    img 
+        width: 40px
+        height: 40px
+        margin: 5px
+        &:hover 
+            transform: scale(1.2)
+            cursor: pointer
+
+.gallery 
+    display: inline-flex
+    overflow-x: scroll
+    width: 300px
+    height: 150px
+    img 
+        height: 120px
+        margin: 20px 10px
+
+.detailBlock 
+    margin: 0 20px
+    h4 
+        margin-left: 120px
+    .imgHolder 
+        display: flex
+        img 
+            margin: 20px
+            align-self: center
+
+.flex 
+    display: flex
+    justify-content: space-between
+    &.two
+        * 
+            width: calc(50% - 20px)
+
+.block 
+    background: opacify(#071425, 0.22)
+    margin: 20px 50px
+    padding: 10px
+    border-radius: 7px
+    box-shadow: opacify(#071425, 0.44) 1px 1px 2px 1px
+    img 
+        height: 50px
+
+.previous 
+    .imgHolder 
+        width: 200px
+        margin-right: 20px
+        align-self: center
+        img 
+            width: 100px
+
+footer 
+    position: fixed
+    bottom: 0   
+    height: 40px
+    width: 100%
+    z-index: 100
+    display: flex
+    background: opacify(#071425, 0.77)
+    justify-content: flex-end
+    align-items: center
+    img 
+        width: 20px
+        height: 20px
+        margin: 5px 10px
+        &:hover
+            transform: scale(1.2)
+            cursor: pointer
+
+#pform 
+    justify-content: start
+
+#conor 
+    width: 200px
+    height: 200px
+    border-radius: 200px
+    border: gold 2px solid
+    margin: 20px
+    z-index: 22
+    transition: width 1s ease-in, height 1s ease-in, top 2s ease-in, left 2s ease-in
+    .stuck 
+        width: 50px
+        height: 50px
+
+#mustache 
+    position: absolute
+    bottom: 0px
+    height: 50px
+    left: calc(50% - 90px)
+    z-index: -10
+
+#php,
+#mysql 
+    transform: scale(1.4)
+    &:hover
+        transform: scale(1.6)
+
+        
