@@ -32,6 +32,17 @@ import gulpsvg from '../img/icons/gulp.svg'
 import phonesvg from '../img/icons/phone.svg'
 import sendsvg from '../img/icons/send.svg'
 
+// History Icons
+import wilxitesvg from '../img/icons/wilxite.png'
+import radiussvg from '../img/icons/radius.jpg'
+import foppsvg from '../img/icons/fopp.png'
+import uobsvg from '../img/icons/uob.png'
+import stbrnsvg from '../img/icons/stbrn.png'
+import trfsvg from '../img/icons/trfwia.png'
+import githubsvg from '../img/icons/github.svg'
+import stacksvg from '../img/icons/stackoverflow.svg'
+import linkedsvg from '../img/icons/linkedin.svg'
+
 // Projects
 const pformImgs = importAll(require.context('../img/screenshots/pform', false, /\.(png|jpe?g|svg)$/))
 const dcpImgs = importAll(require.context('../img/screenshots/dcpfm', false, /\.(png|jpe?g|svg)$/))
@@ -107,10 +118,12 @@ upArrow.addEventListener('click', () => {
 function langClick(element) {
   openDraw = true;
   let code = element.getAttribute('id');
+  console.log(code)
   codeText.innerHTML = returnCode(code);
   codeDrawer.classList.add('show');
 }
 
+// Profile
 var conor = document.getElementById('conor')
 conor.src = conorsvg
 
@@ -148,6 +161,35 @@ webpIcon.src = webpsvg
 
 var gulpIcon = document.getElementById('gulp')
 gulpIcon.src = gulpsvg
+
+// History
+var wilxIcon = document.getElementById('wilxite')
+wilxIcon.src = wilxitesvg
+
+var radIcon = document.getElementById('radius')
+radIcon.src = radiussvg
+
+var foppIcon = document.getElementById('fopp')
+foppIcon.src = foppsvg
+
+var uobIcon = document.getElementById('uob')
+uobIcon.src = uobsvg
+
+var stbrnIcon = document.getElementById('stbrn')
+stbrnIcon.src = stbrnsvg
+
+var trfIcon = document.getElementById('trfwia')
+trfIcon.src = trfsvg
+
+// External
+var githubIcon = document.getElementById('github')
+githubIcon.src = githubsvg
+
+var stackIcon = document.getElementById('stackOverflow')
+stackIcon.src = stacksvg
+
+var linkIcon = document.getElementById('linkedIn')
+linkIcon.src = linkedsvg
 
 window.onscroll = (e) => {
     if (document.documentElement.scrollTop >= 100 && !openDraw) {
