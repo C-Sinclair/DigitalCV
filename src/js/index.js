@@ -1,4 +1,5 @@
 import * as _ from 'lodash';
+import popper from 'popper.js'
 
 // Language Icons
 import html5svg from '../img/icons/html5.svg';
@@ -43,9 +44,17 @@ import githubsvg from '../img/icons/github.svg'
 import stacksvg from '../img/icons/stackoverflow.svg'
 import linkedsvg from '../img/icons/linkedin.svg'
 
-// Projects
-const pformImgs = importAll(require.context('../img/screenshots/pform', false, /\.(png|jpe?g|svg)$/))
-const dcpImgs = importAll(require.context('../img/screenshots/dcpfm', false, /\.(png|jpe?g|svg)$/))
+// Projects 
+// // Pform 
+import home from '../img/screenshots/pform/home.png'
+import objectives from '../img/screenshots/pform/objectives.png'
+import feedback from '../img/screenshots/pform/feedback.png'
+import reportsopen from '../img/screenshots/pform/reports-open.png'
+// // DCPFM
+import arrived from '../img/screenshots/dcpfm/arrived.png'
+import camera from '../img/screenshots/dcpfm/camera.png'
+import splash from '../img/screenshots/dcpfm/splash.png'
+import claimlist from '../img/screenshots/dcpfm/claimlist.png'
 
 // Styles
 import '../styles/main.sass';
@@ -60,6 +69,8 @@ var codeText = document.querySelector('#codeDrawer p.code');
 var upArrow = document.querySelector('.up-arrow');
 var profileName = document.getElementById('profileName');
 var pic = document.getElementById('conor');
+var pformHolder = document.getElementById('pform');
+var dcpfmHolder = document.getElementById('dcpfm');
 
 var htmlIcon = document.getElementById('html');
 htmlIcon.src = html5svg;
@@ -118,7 +129,6 @@ upArrow.addEventListener('click', () => {
 function langClick(element) {
   openDraw = true;
   let code = element.getAttribute('id');
-  console.log(code)
   codeText.innerHTML = returnCode(code);
   codeDrawer.classList.add('show');
 }
@@ -161,6 +171,17 @@ webpIcon.src = webpsvg
 
 var gulpIcon = document.getElementById('gulp')
 gulpIcon.src = gulpsvg
+
+// Projects
+var homeImg = document.createElement('img');
+homeImg.src = home
+
+var objImg = document.createElement('img');
+objImg.src = objectives
+
+
+pformHolder.appendChild(homeImg, objImg)
+
 
 // History
 var wilxIcon = document.getElementById('wilxite')
