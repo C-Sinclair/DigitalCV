@@ -72,11 +72,6 @@ const config = {
   },
   plugins: [
     new CleanWebpackPlugin(['dist']),
-    new webpack.ProvidePlugin({
-      $: 'jquery',
-      jQuery: 'jquery',
-      'windows.jQuery': 'jquery',
-    }),
     new CopyWebpackPlugin([
       {
         from: './src',
