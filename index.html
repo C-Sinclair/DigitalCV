@@ -462,49 +462,5 @@
         <img src="icons/linkedin.svg" id="linkedIn">
     </footer>
 
-    <script>
-    var openDraw = false;
-    var size = 200;
-    var codeDrawer = document.querySelector('#codeDrawer');
-    var codeText = document.querySelector('#codeDrawer p.code');
-    var headerImg = document.querySelectorAll("header img");
-    var upArrow = document.querySelector('.up-arrow');
-    var profileName = document.querySelector('#profileName');
-    var pic = document.querySelector('#conor');
-
-    for (var i = 0 ; i < headerImg.length; i++) {
-        headerImg[i].addEventListener('click' , function() {
-            openDraw = true;
-            code = this.getAttribute('id'); 
-            codeText.innerHTML = returnCode(code);
-            if (codeDrawer.classList) {
-                codeDrawer.classList.add('show');
-            } else {
-                codeDrawer.className += ' ' + 'show';
-            }
-        }, false ) ; 
-    }
-
-    upArrow.addEventListener('click', function() {
-        codeDrawer.classList.remove('show');
-        openDraw = false;
-    })
-
-    window.onscroll = function(e) {
-        if (document.documentElement.scrollTop >= 100 && !openDraw) {
-            profileName.classList.add('stuck');
-            pic.classList.add('stuck');
-        } else
-        if (document.documentElement.scrollTop >= 400 && openDraw) {
-            profileName.classList.add('stuck');
-            pic.classList.add('stuck');
-        } else {
-            profileName.classList.remove('stuck');
-            pic.classList.remove('stuck');
-        }   
-    }
-
-    </script>
-
 </body>
 </html>

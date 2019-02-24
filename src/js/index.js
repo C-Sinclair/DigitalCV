@@ -22,7 +22,7 @@ var size = 200;
 var codeDrawer = document.getElementById('codeDrawer');
 var codeText = document.querySelector('#codeDrawer p.code');
 var headerImg = document.querySelectorAll('header img');
-var upArrow = document.getElementsByClassName('.up-arrow');
+var upArrow = document.querySelector('.up-arrow');
 var profileName = document.getElementById('#profileName');
 var pic = document.getElementById('#conor');
 
@@ -75,7 +75,7 @@ _.each(langIcons, el => {
   );
 });
 
-upArrow.addEventListener('click', function() {
+upArrow.addEventListener('click', () => {
   codeDrawer.classList.remove('show');
   openDraw = false;
 });
@@ -83,7 +83,20 @@ upArrow.addEventListener('click', function() {
 function langClick(element) {
   openDraw = true;
   let code = element.getAttribute('id');
-  console.log(code);
   codeText.innerHTML = returnCode(code);
   codeDrawer.classList.add('show');
+}
+
+window.onscroll = (e) => {
+    if (document.documentElement.scrollTop >= 100 && !openDraw) {
+        profileName.classList.add('stuck');
+        pic.classList.add('stuck');
+    } else
+    if (document.documentElement.scrollTop >= 400 && openDraw) {
+        profileName.classList.add('stuck');
+        pic.classList.add('stuck');
+    } else {
+        profileName.classList.remove('stuck');
+        pic.classList.remove('stuck');
+    }   
 }
