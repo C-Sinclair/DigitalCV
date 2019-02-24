@@ -14,6 +14,7 @@
     "start": "npm run dev"
   },
   "dependencies": {
+    "lodash": "^4.17.11",
     "popper.js": "^1.14.6"
   },
   "devDependencies": {
@@ -63,10 +64,6 @@
   "lint-staged": {
     "package.json": [
       "prettier-package-json --write",
-      "git add"
-    ],
-    "*.js": [
-      "eslint --fix",
       "git add"
     ]
   }

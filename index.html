@@ -287,13 +287,13 @@
     <header>
         <img id="html">
         <img id="css">
-        <img src="icons/js.svg" id="js">
-        <img src="icons/jquery.svg" id="jquery">
-        <img src="icons/json.png" id="json">
-        <img src="icons/mysql.svg" id="mysql">
-        <img src="icons/php.svg" id="php">
-        <img src="icons/swift.svg" id="swift">
-        <img src="icons/kotlin.svg" id="kotlin">
+        <img id="js">
+        <img id="jquery">
+        <img id="json">
+        <img id="mysql">
+        <img id="php">
+        <img id="swift">
+        <img id="kotlin">
     </header>
 
     <div id="codeDrawer">
@@ -472,18 +472,7 @@
     var profileName = document.querySelector('#profileName');
     var pic = document.querySelector('#conor');
 
-    for (var i = 0 ; i < headerImg.length; i++) {
-        headerImg[i].addEventListener('click' , function() {
-            openDraw = true;
-            code = this.getAttribute('id'); 
-            codeText.innerHTML = returnCode(code);
-            if (codeDrawer.classList) {
-                codeDrawer.classList.add('show');
-            } else {
-                codeDrawer.className += ' ' + 'show';
-            }
-        }, false ) ; 
-    }
+    
 
     upArrow.addEventListener('click', function() {
         codeDrawer.classList.remove('show');
