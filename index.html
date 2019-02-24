@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Ciriculum Vitae</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Oswald:300,400,600');
+        :root {
+            --green: #789F8A;
+            --lilac: #A293AC;
+            --grey: #292929;
+            --lgtgrey: #454545;
+            --dark: #071425;
+        }
+        body {
+            background: var(--green);
+            display: grid;
+            font-family: 'Oswald', sans-serif;
+            color: var(--grey);
+            margin: 0;
+            padding-bottom: 50px;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            color: var(--lgtgrey);
+        }
+        header {
+            display: flex;
+            justify-content: space-evenly;
+            margin: 25px;
+        }
+        header img {
+            width: 50px;
+            height: 50px;
+        }
+        header img:hover,
+        footer img:hover,
+        .tech img:hover,
+        .iconHolder img:hover {
+            transform: scale(1.2);
+            cursor: pointer;
+        }
+        #profileName {
+            padding-top: 20px;
+            justify-self: center;
+            display: grid;
+            width: 100%;
+            z-index: 2;
+            background: var(--green);
+            position: relative;
+        }
+        #profileName::after {
+            content: "";
+            border: 1px solid gold;
+            height: 0;
+            width: 0;
+            margin-left: -20px;
+            transition: width 1s ease-out 1s;
+        }
+        #profileName strong {
+            letter-spacing: 30px;
+            font-size: 1.2em;
+            color: #FFF;
+            text-align: center;
+            width: 100%;
+            padding-bottom: 10px;
+        }
+        #profileName .imgHolder {
+            position: absolute;
+            top: 50px;
+            width: 100%;
+            text-align: center;
+            transition: top 1s ease-in,
+                        margin-left 1s ease-in;
+        }
+        #profileName .iconHolder {
+            display: flex;
+            justify-content: space-between;
+            width: 80px;
+            position: absolute;
+            right: 20px;
+            top: 20px;
+        }
+        #profileName .iconHolder img {
+            width: 20px;
+            height: 30px;
+        }
+        #profileName.stuck {
+            position: fixed;
+        }
+        #profileName.stuck:after {
+            width: calc(100% + 40px);
+        }
+        #profileName.stuck .imgHolder {
+            top: -10px;
+            margin-left: -340px;
+        }
+        .profile {
+            margin-top: 30px;
+            width: 100%;
+            position: relative;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+        .profile h4,
+        .projects h4 {
+            text-align: center;
+        }
+        .profile .imgHolder {
+            justify-self: center;
+            align-items: center;
+            position: relative;
+        }
+        .projects {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            width: 100%;
+            position: relative;
+            padding: 0 20px;
+        }
+        .projects .gallery {
+            width: calc(50vw - 30px);
+            justify-content: center;
+        }
+        #pform {
+            justify-content: start;
+        }
+        #conor {
+            width: 200px;
+            height: 200px;
+            border-radius: 200px;
+            border: gold 2px solid;
+            margin: 20px;
+            z-index: 22;
+            transition: width 1s ease-in,
+                        height 1s ease-in,
+                        top 2s ease-in,
+                        left 2s ease-in;
+        }
+        #conor.stuck {
+            width: 50px;
+            height: 50px;
+        }
+        #mustache {
+            position: absolute;
+            bottom: 0px;
+            height: 50px;
+            left: calc(50% - 90px);
+            z-index: -10;
+        }
+        #profilePic div {
+            margin: 0 20px;
+            color: var(--lgtgrey);
+            text-align: center;
+        }
+        #php,
+        #mysql {
+            transform: scale(1.4);
+        }
+        #php:hover,
+        #mysql:hover {
+            transform: scale(1.6);
+        }
+        #codeDrawer {
+            background: #000000;
+            width: 100%;
+            padding: 0px 20px;
+            position: relative;
+            height: 0;
+            overflow: hidden;
+            transition: height 0.8s ease-out;
+        }
+        #codeDrawer.show {
+            height: 300px;
+            transition height 0.5s ease-out;
+        }
+        .code {
+            color:#EEEEEE;
+            font-family:Consolas,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New;
+            margin-bottom: 30px;
+        }
+        .up-arrow {
+	        border-color: var(--green) transparent;
+            border-style: solid;
+            border-width: 0px 20px 20px 20px;
+            height: 0px;
+            width: 0px;
+            position: absolute;
+            bottom: 0px;
+            left: calc(50% - 35px);
+        }
+        .up-arrow:hover {
+            cursor: pointer;
+            transform: scale(1.5);
+        }
+        .tech {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .tech img {
+            width: 40px;
+            height: 40px;
+            margin: 5px;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            margin: 20px;
+        }
+        .gallery {
+            display: inline-flex;
+            overflow-x: scroll;
+            width: 300px;
+            height: 150px;
+        }
+        .gallery img {
+            height: 120px;
+            margin: 20px 10px;
+        }
+        .detailBlock {
+            margin: 0 20px;
+        }
+        .detailBlock h4 {
+            margin-left: 120px;
+        }
+        .detailBlock .imgHolder {
+            display: flex;
+        }
+        .detailBlock .imgHolder img {
+            margin: 20px;
+            align-self: center;
+        }
+        .flex {
+            display: flex;
+            justify-content: space-between;
+        }
+        .flex.two > * {
+            width: calc(50% - 20px);
+        }
+        .block {
+            background: #07142522;
+            margin: 20px 50px;
+            padding: 10px;
+            border-radius: 7px;
+            box-shadow: #07142544 1px 1px 2px 1px;
+        }
+        .block img {
+            height: 50px;
+        }
+        li strong,
+        .previous strong {
+            letter-spacing: 2px;
+            margin-left: 20px;
+        }
+        .previous .imgHolder {
+            width: 200px;
+            margin-right: 20px;
+            align-self: center;
+        }
+        .previous .imgHolder img {
+            width: 100px;
+        }
+        footer {
+            position: fixed;
+            bottom: 0;
+            height: 40px;
+            width: 100%;
+            z-index: 100;
+            display: flex;
+            background: #07142577;
+            justify-content: flex-end;
+            align-items: center;
+        }
+        footer img {
+            width: 20px;
+            height: 20px;
+            margin: 5px 10px;
+        }
+    </style>
+
+</head>
+<body>
+    
+    <header>
+        <img src="icons/html5.svg" id="html">
+        <img src="icons/css3.svg" id="css">
+        <img src="icons/js.svg" id="js">
+        <img src="icons/jquery.svg" id="jquery">
+        <img src="icons/json.png" id="json">
+        <img src="icons/mysql.svg" id="mysql">
+        <img src="icons/php.svg" id="php">
+        <img src="icons/swift.svg" id="swift">
+        <img src="icons/kotlin.svg" id="kotlin">
+    </header>
+
+    <div id="codeDrawer">
+        <p class="code"></p>
+        <i class="up-arrow"></i>
+    </div>
+
+    <div id="profileName">
+        <strong>CONOR SINCLAIR</strong>
+        <div class="imgHolder">
+            <img src="icons/conor.svg" id="conor">
+        </div>
+        <div class="iconHolder">
+            <img src="icons/phone.svg" id="phone">
+            <img src="icons/send.svg" id="mail">
+        </div>
+    </div>
+
+    <div class="profile">
+        <div>
+            <h4>Favoured Programs</h4>
+            <div class="tech">
+                <img src="icons/illustrator.svg" id="illustrator">
+                <img src="icons/vscode.png" id="vscode">
+                <img src="icons/androidstudio.png" id="androidstudio">
+                <img src="icons/xcode.png" id="xcode">
+                <img src="icons/gitkraken.png" id="gitkraken">
+                <img src="icons/ableton.png" id="ableton">
+            </div>
+        </div>
+        <div class="imgHolder"></div>
+        <div>
+            <h4>Compatible Technologies</h4>
+            <div class="tech">
+                <img src="icons/git.png" id="git">
+                <img src="icons/sass.png" id="sass">
+                <img src="icons/webpack.svg" id="webpack">
+                <img src="icons/gulp.svg" id="gulp">
+            </div>
+        </div>
+    </div>
+    <h4>Current Projects</h4>
+    <div class="projects">
+        <div>
+            <h4>Appraisal System</h4>
+            <div class="gallery" id="pform">
+                <img src="screenshots/pform/home.png">
+                <img src="screenshots/pform/objectives.png">
+                <img src="screenshots/pform/feedback.png">
+                <img src="screenshots/pform/reports-open.png">
+            </div>
+        </div>
+        <div>
+            <h4>Property Damage App</h4>
+            <div class="gallery">
+                <img src="screenshots/dcpfm/arrived.png">
+                <img src="screenshots/dcpfm/camera.png">
+                <img src="screenshots/dcpfm/splash.png">
+                <img src="screenshots/dcpfm/claimlist.png">
+            </div>
+        </div>
+    </div>
+
+    <div class="detailBlock">
+        <h4>Previous Positions</h4>
+        <div class="block">
+            <strong>Wilxite &lt;/&gt; Software Developer</strong>
+            <div class="flex">
+                <div class="imgHolder">
+                    <img src="icons/wilxite.png">
+                </div>
+                <p>In my current role at Wilxite, I am the lead developer on two major projects, and have assisted my team members on a wealth of others when assitance has been needed. 
+                
+                The first of which is an appraisal system targeting GP surgeries across the South West. Currently in Beta, the system is a CRUD web application written in PHP with a sprinkling of jQuery for the front end. 
+
+                The aim of the application is for users to form a discussion with their line managers, and set targets and record meetings and experience. 
+                
+                With the target market being the health field, data protection and privacy have been a constant theme throughout the project. I have been required to work very closely with the client to achieve the exact desired outcome of the project.
+                
+                The second project is an App for both Android and iOS for a client who specialises in damaged property repairs. The aims of the app is for engineers to photograph and upload pictures of damage to the property and log the times taken on these visits. 
+                </p>
+            </div>
+        </div>
+        <div class="block">
+            <strong>Radius Logistics &lt;/&gt; Warehouse Supervisor</strong>
+            <div class="flex">
+                <div class="imgHolder">
+                    <img src="icons/radius.jpg">
+                </div>
+                <p>Responsible for managing daily warehouse operations to meet our customer needs and demands. Meet stringent daily logistical targets through effective communication and team working skills. Deliver excellent Customer Relationship Management as demand dictates, whilst prioritising daily tasks. Using initiative to overcome unforeseen obstacles through innovation and good organisational skills. Effectively utilise Microsoft Office to ensure various data is concisely presented and proficiently organised. Oversee stock management, compiling daily and weekly reports to ensure proficient updates are given. Design and implement innovative and effective processes to ensure efficiency is achieved collectively. Supervise a team of three within both the warehouse operations and administration team. Revise data and customer demands to enable effective and proficient forward planning </p>
+            </div>
+        </div>
+        <div class="flex">
+            <div class="block">
+                <img src="icons/fopp.png">
+                <strong>Fopp<strong>
+            </div>
+            <div class="block">
+                <strong>Ocado</strong>
+            </div>
+            <div class="block">
+                <strong>Stairways</strong>
+            </div>
+        </div>
+    </div>
+
+    <div class="detailBlock">
+        <h4>Education</h4>
+        <div class="block">
+            <strong>Bristol University</strong>
+            <div class="flex">
+                <img src="icons/uob.png">
+                <p>I completed the first year of a chemistry degree at the prestigious University of Bristol. However, I realised that I do not want to pursue a career in science and therefore I did not return to complete the course in September 2014.</p>
+            </div>
+        </div>
+        <div class="flex two">
+            <div class="block">
+                <strong>St. Brendan's College</strong>
+                <div class="flex">
+                    <img src="icons/stbrn.png">
+                    <div>
+                        <h4>A level's</h4>
+                        <ul>
+                            <li>Mathematics - A*</li>
+                            <li>Further Mathematics - B</li>
+                            <li>Chemistry - A</li>
+                            <li>Biology - A</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="block">
+                <strong>The Ridings</strong>
+                <div class="flex">
+                    <img src="icons/trfwia.png">
+                    <div>
+                        <h4>GCSE's</h4>
+                        <ul>
+                        
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="detailBlock">
+        <h4>Personal Pursuits</h4>
+            <div class="block">
+                <strong>Music</strong>
+                <p>I am an avid digital musician and producer, with my preferred DAW being Logic. I compose a wide variety of different styles and sounds, anything from soundtrack work to dance music.</p>
+            </div>
+            <div class="block">
+                <strong>Comedy</strong>
+                <p>I regularly record podcasts and I also write and star in comedy sketches. </p>
+            </div>
+            <div class="block">
+                <strong>Graphics</strong>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <img src="icons/github.svg" id="github">
+        <img src="icons/stackoverflow.svg" id="stackOverflow">
+        <img src="icons/linkedin.svg" id="linkedIn">
+    </footer>
+
+    <script>
+    var openDraw = false;
+    var size = 200;
+    var codeDrawer = document.querySelector('#codeDrawer');
+    var codeText = document.querySelector('#codeDrawer p.code');
+    var headerImg = document.querySelectorAll("header img");
+    var upArrow = document.querySelector('.up-arrow');
+    var profileName = document.querySelector('#profileName');
+    var pic = document.querySelector('#conor');
+
+    for (var i = 0 ; i < headerImg.length; i++) {
+        headerImg[i].addEventListener('click' , function() {
+            openDraw = true;
+            code = this.getAttribute('id'); 
+            codeText.innerHTML = returnCode(code);
+            if (codeDrawer.classList) {
+                codeDrawer.classList.add('show');
+            } else {
+                codeDrawer.className += ' ' + 'show';
+            }
+        }, false ) ; 
+    }
+
+    upArrow.addEventListener('click', function() {
+        codeDrawer.classList.remove('show');
+        openDraw = false;
+    })
+
+    window.onscroll = function(e) {
+        if (document.documentElement.scrollTop >= 100 && !openDraw) {
+            profileName.classList.add('stuck');
+            pic.classList.add('stuck');
+        } else
+        if (document.documentElement.scrollTop >= 400 && openDraw) {
+            profileName.classList.add('stuck');
+            pic.classList.add('stuck');
+        } else {
+            profileName.classList.remove('stuck');
+            pic.classList.remove('stuck');
+        }   
+    }
+
+    function returnCode(code) {
+        switch(code) {
+            case "php": 
+                return "&lt;?php<br><br>require dirname(__DIR__) . '/vendor/autoload.php';<br><br>error_reporting(E_ALL);<br>set_error_handler('Core\Error::errorHandler');<br>set_exception_handler('Core\Error::exceptionHandler');<br><br>$router = new Core\Router();<br>$router->dispatch($_SERVER['REQUEST_URI']);<br>";
+
+            case "js":
+                return `<pre>function navigate(url, data, complete) {
+    window.history.pushState({href: url}, '', url);
+    if(!data) data = {};
+    url += " #content > * ";
+    load(url, data, complete);
+}
+
+function exit(fallback) {
+    current = store.history.pop();
+    previous = store.history.pop();
+    prevData = store.data.pop();
+
+    if(fallback) store.fallback = fallback;
+
+    load(previous, prevData);
+}<pre>`
+
+            case "jquery":
+                return `<pre>    $(".feedbackList").on('click', '.reply', function() {
+        fbId = $(this).attr('fbId');
+        $(".placeholder").load('/inc/conversation/float.php', {
+            fbId : fbId
+        }, function() {
+            $('#messageList').load('/inc/conversation/messages.php', {
+                fbId : fbId,
+                scrollOffset : scrollOffset
+            }, function() {
+                setTimeout(function() {
+                    $("#messageList").animate({
+                        scrollTop: $("#messageList")[0].scrollHeight
+                    }, 'slow');
+                }, 250);
+            })
+        })
+    })
+    $('.placeholder').on("keypress", "#messageInput", function(e){
+        if (e.which == 13 && !e.shiftKey) {
+            scrollOffset = $("#messageList").scrollTop();
+            fbId = $('#newFeedback').attr('fbId');
+            fmMessage =  $('#messageInput').val();
+            if(fmMessage) {
+                $.post('/inc/queries/feedback.php', {
+                    type : "message",
+                    fbId : fbId,
+                    fmMessage : fmMessage
+                }, function() {
+                    document.getElementById('messageInput').value = "";
+                })
+                $('#messageList').load('/inc/conversation/messages.php', {
+                    fbId : fbId,
+                    scrollOffset : $("#messageList")[0].scrollHeight
+                });
+            }
+        }
+    });</pre>`
+            case "mysql":
+                return "CREATE TABLE Users (<br>&nbsp;&nbsp;&nbsp;&nbsp;usId int IDENTITY(1,1) PRIMARY KEY,<br>&nbsp;&nbsp;&nbsp;&nbsp;usLastName varchar(255) NOT NULL,<br>&nbsp;&nbsp;&nbsp;&nbsp;usFirstName varchar(255),<br>&nbsp;&nbsp;&nbsp;&nbsp;usAge int<br>);<br><br>INSERT INTO Users (usLastName, usFirstName, usAge)<br>SELECT clSurname, clFirstInitial, ROUND(DATEDIFF(NOW(), clBirthDate), 365.25) as 'clAge' <br>FROM clients <br>WHERE clId = '1'"; 
+
+            case "json":
+                return `<pre>{"claims":[{
+    "id":"1",
+    "policyHolderName":"C S Lewis",
+    "siteAdLine1":"Unit 2 Salmon Springs",
+    "siteAdLine2":"",
+    "siteAdLine3":"",
+    "siteTown":"Stroud",
+    "siteCounty":"",
+    "sitePostcode":"GL6 6NU","contactTel":"0651",
+    "homeTel":"51065",
+    "workTel":"651361",
+    "mobileTel":"0320320",
+    "authorisedOther":"",
+    "vulnerable":false,
+    "highNetWorth":false,
+    "peril":"Boarding",
+    "perilDetail":"false",
+    "asbestosRisk":false,
+    "asbestosDetail":"",
+    "notes":"",
+    "client":"0","subClient":"0",
+    "clientRef":"12574",
+    "insuranceScheme":""},{"id":"2",
+    "policyHolderName":"Dr Doolittle"
+}</pre>`;
+
+            case "swift":
+                return "class ClaimLogController: UIViewController {<br>&nbsp;&nbsp;&nbsp;&nbsp;override func viewDidLoad() {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; super.viewDidLoad()<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; setupLogo()<br>&nbsp;&nbsp;&nbsp;&nbsp;}<br>}<br><br>extension UIViewController {<br>&nbsp;&nbsp;&nbsp;&nbsp; func setupLogo() {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    let imageView = UIImageView()<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    imageView.contentMode = .scaleAspectFit<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    imageView.image = UIImage(named: 'logo')<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; self.navigationItem.titleView = imageView<br>&nbsp;&nbsp;&nbsp;&nbsp; }<br>}";
+                
+            case "kotlin":
+                return "override fun onCreate(savedInstanceState: Bundle?) { <br>&nbsp;&nbsp;&nbsp;&nbsp; setTheme(R.style.AppTheme)<br>&nbsp;&nbsp;&nbsp;&nbsp; super.onCreate(savedInstanceState)<br>&nbsp;&nbsp;&nbsp;&nbsp; setContentView(layoutRes())<br>&nbsp;&nbsp;&nbsp;&nbsp; startNav(graphStart())<br><br>&nbsp;&nbsp;&nbsp;&nbsp; val app = application as App<br>&nbsp;&nbsp;&nbsp;&nbsp; component = DaggerActivityComponent.builder()<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .activityModule(ActivityModule(this, navController))<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .appComponent(app.component)<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .build()<br>&nbsp;&nbsp;&nbsp;&nbsp; onInject()<br> } ";
+
+            case "css": 
+                return `<pre>@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700');
+		
+body {
+	font-family: 'Open Sans', sans-serif;
+	background-color: #DDDDDD;
+	display: -ms-grid;
+	display: grid;
+	-ms-grid-columns: 325px 1fr;
+	grid-template-columns: 325px 1fr;
+	-ms-grid-rows: 55px calc(100% - 55px);
+	grid-template-rows: 55px calc(100% - 55px);
+	    grid-template-areas: 
+		"header header"
+		"sidebar content";
+	justify-items: stretch;
+	-webkit-box-pack: stretch;
+	    -ms-flex-pack: stretch;
+	        justify-content: stretch;
+	margin: 0;
+}</pre>`
+            case "html": 
+                return `<pre>
+&lt;table cellpadding='0' cellspacing='0'&gt;<br>
+    &lt;thead&gt;<br>
+        &lt;tr&gt;<br>
+            &lt;th colspan='3'&gt;<br>
+                &lt;strong&gt;&lt;?=$title?&gt;&lt;/strong&gt;<br>
+                &lt;div&gt;<br>
+                    &lt;a href='feedback.php'>&lt;i class='fas fa-times'>&lt;/i>&lt;/a&gt;<br>
+                &lt;div&gt;<br>
+            &lt;th&gt;<br>
+        &lt;tr&gt;<br>
+    &lt;thead&gt;<br>
+    &lt;tbody&gt;<br>
+        &lt;tr&gt;<br>
+            &lt;td&gt;<br>
+                &lt;div class='conversation container'&gt;<br>
+                    &lt;ul class='messages'&gt;&lt;/ul&gt;<br>
+                    &lt;button type='button' class='centred pointer' id='sendMessage' style='width: 110px'&gt;Send&lt;/button&gt;<br>
+                &lt;div&gt;<br>
+            &lt;div&gt;		<br>
+        &lt;td&gt;<br>
+    &lt;tr&gt;<br>
+    &lt;tbody&gt;<br>
+&lt;table&gt;</pre>`;
+        }
+        setTimeout(function() {
+            parseCode()
+        }, 1000)
+    }
+
+    function parseCode() {
+        codeText.innerHTML.search('function').style.color = '#00FFAA';
+    }
+    </script>
+
+</body>
+</html>
