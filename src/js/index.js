@@ -179,9 +179,33 @@ homeImg.src = home
 var objImg = document.createElement('img');
 objImg.src = objectives
 
+var feedbackImg = document.createElement('img');
+feedbackImg.src = feedback
 
-pformHolder.appendChild(homeImg, objImg)
+var reportsImg = document.createElement('img');
+reportsImg.src = reportsopen
 
+pformHolder.appendChild(homeImg)
+pformHolder.appendChild(objImg)
+pformHolder.appendChild(feedbackImg)
+pformHolder.appendChild(reportsImg)
+
+var arrivedImg = document.createElement('img');
+arrivedImg.src = arrived
+
+var cameraImg = document.createElement('img');
+cameraImg.src = camera
+
+var splashImg = document.createElement('img');
+splashImg.src = splash
+
+var claimlistImg = document.createElement('img');
+claimlistImg.src = claimlist
+
+dcpfmHolder.appendChild(splashImg)
+dcpfmHolder.appendChild(arrivedImg)
+dcpfmHolder.appendChild(cameraImg)
+dcpfmHolder.appendChild(claimlistImg)
 
 // History
 var wilxIcon = document.getElementById('wilxite')
