@@ -6,6 +6,7 @@ body {
   color: #292929;
   margin: 0;
   padding-bottom: 50px;
+  scroll-snap-type: y mandatory;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -50,6 +51,7 @@ header img:hover {
   z-index: 2;
   background: #789F8A;
   position: relative;
+  scroll-snap-align: start;
 }
 
 #profileName::after {
@@ -155,6 +157,7 @@ header img:hover {
   position: relative;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  scroll-snap-align: start;
 }
 
 .profile h4 {
@@ -173,6 +176,7 @@ header img:hover {
   width: 100%;
   position: relative;
   padding: 0 20px;
+  scroll-snap-align: start;
 }
 
 .projects .gallery {
@@ -192,6 +196,7 @@ header img:hover {
   height: 0;
   overflow: hidden;
   transition: height 0.8s ease-out;
+  scroll-snap-align: start;
 }
 
 #codeDrawer.show {

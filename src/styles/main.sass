@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Oswald:300,400,600')
+@import url('https://fonts.googleapis.com/css?family=Oswald:300,400,600');
 
 $green: #789F8A
 $lilac: #A293AC
@@ -16,6 +16,7 @@ body
     color: $grey
     margin: 0
     padding-bottom: 50px
+    scroll-snap-type: y mandatory
 
 h1, h2, h3, h4, h5, h6 
     color: $lgtgrey
@@ -51,6 +52,7 @@ header
     z-index: 2
     background: $green
     position: relative
+    scroll-snap-align: start
     &::after 
         content: ""
         border: 1px solid gold
@@ -125,6 +127,7 @@ header
     position: relative
     display: grid
     grid-template-columns: 1fr 1fr 1fr
+    scroll-snap-align: start
     h4
         text-align: center
     .imgHolder 
@@ -138,6 +141,7 @@ header
     width: 100%
     position: relative
     padding: 0 20px
+    scroll-snap-align: start
     .gallery 
         width: calc(50vw - 30px)
         justify-content: center
@@ -152,6 +156,7 @@ header
     height: 0
     overflow: hidden
     transition: height 0.8s ease-out
+    scroll-snap-align: start
     &.show 
         height: 300px
         transition: height 0.5s ease-out

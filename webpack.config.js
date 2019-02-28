@@ -27,7 +27,7 @@ const config = {
       {
         test: /\.sass$/,
         use: [
-          IS_DEV ? 'style-loader' : MiniCssExtractPlugin.loader,
+          'style-loader',
           'css-loader',
           'sass-loader',
         ],
