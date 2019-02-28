@@ -6,8 +6,6 @@ body {
   color: #292929;
   margin: 0;
   padding-bottom: 50px;
-  width: calc(100vw - 10px);
-  padding: 0 5px;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -179,6 +177,16 @@ header img:hover {
 .projects img {
   height: 250px;
   margin: 0 20px;
+  transition: all 0.5s ease;
+}
+
+.projects img:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.projects img.selected {
+  height: 500px;
 }
 
 #codeDrawer {

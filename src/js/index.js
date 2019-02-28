@@ -192,13 +192,13 @@ gallery.appendChild(reportsImg)
 var arrivedImg = document.createElement('img');
 arrivedImg.src = arrived
 
-var cameraImg = document.createElement('img');
+var cameraImg = document.createElement('img')
 cameraImg.src = camera
 
-var splashImg = document.createElement('img');
+var splashImg = document.createElement('img')
 splashImg.src = splash
 
-var claimlistImg = document.createElement('img');
+var claimlistImg = document.createElement('img')
 claimlistImg.src = claimlist
 
 gallery.appendChild(splashImg)
@@ -206,7 +206,48 @@ gallery.appendChild(arrivedImg)
 gallery.appendChild(cameraImg)
 gallery.appendChild(claimlistImg)
 
-gallery.style
+var n = 0
+var m = 0
+var r = 0
+var animationID
+var selected
+var projectClicked = false
+
+function scrollGallery() {
+  gallery.style.marginLeft = n + "px" 
+  let child = gallery.children[r]
+  n--
+  m++
+  if (m > child.width) {
+    let newImg = child.cloneNode(true)
+    gallery.appendChild(newImg)
+    r++
+    m = 0
+  }
+  animationID = requestAnimationFrame(scrollGallery)
+}
+animationID = requestAnimationFrame(scrollGallery)
+
+gallery.addEventListener('mouseover', () => {
+  cancelAnimationFrame(animationID)
+})
+
+gallery.addEventListener('mouseout', () => {
+  animationID = requestAnimationFrame(scrollGallery)
+  // if (projectClicked) {
+  //   setTimeout(() => {
+  //     selected.classList.remove("selected")
+  //   }, 1000)
+  // }
+})
+
+// gallery.addEventListener('click', (e) => {
+//   cancelAnimationFrame(animationID)
+//   gallery.style.height = "500px"
+//   selected = e.target
+//   selected.classList.add("selected")
+//   projectClicked = true
+// })
 
 // History
 var wilxIcon = document.getElementById('wilxite')
