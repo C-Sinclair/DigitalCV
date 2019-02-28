@@ -69,8 +69,7 @@ var codeText = document.querySelector('#codeDrawer p.code');
 var upArrow = document.querySelector('.up-arrow');
 var profileName = document.getElementById('profileName');
 var pic = document.getElementById('conor');
-var pformHolder = document.getElementById('pform');
-var dcpfmHolder = document.getElementById('dcpfm');
+var gallery = document.getElementById('gallery');
 
 var htmlIcon = document.getElementById('html');
 htmlIcon.src = html5svg;
@@ -185,10 +184,10 @@ feedbackImg.src = feedback
 var reportsImg = document.createElement('img');
 reportsImg.src = reportsopen
 
-pformHolder.appendChild(homeImg)
-pformHolder.appendChild(objImg)
-pformHolder.appendChild(feedbackImg)
-pformHolder.appendChild(reportsImg)
+gallery.appendChild(homeImg)
+gallery.appendChild(objImg)
+gallery.appendChild(feedbackImg)
+gallery.appendChild(reportsImg)
 
 var arrivedImg = document.createElement('img');
 arrivedImg.src = arrived
@@ -202,10 +201,12 @@ splashImg.src = splash
 var claimlistImg = document.createElement('img');
 claimlistImg.src = claimlist
 
-dcpfmHolder.appendChild(splashImg)
-dcpfmHolder.appendChild(arrivedImg)
-dcpfmHolder.appendChild(cameraImg)
-dcpfmHolder.appendChild(claimlistImg)
+gallery.appendChild(splashImg)
+gallery.appendChild(arrivedImg)
+gallery.appendChild(cameraImg)
+gallery.appendChild(claimlistImg)
+
+gallery.style
 
 // History
 var wilxIcon = document.getElementById('wilxite')
@@ -248,10 +249,4 @@ window.onscroll = (e) => {
         profileName.classList.remove('stuck');
         pic.classList.remove('stuck');
     }   
-}
-
-function importAll(r) {
-    let images = {};
-    r.keys().map((item, index) => { images[item.replace('./', '')] = r(item); });
-    return images;
 }

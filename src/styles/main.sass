@@ -16,7 +16,8 @@ body
     color: $grey
     margin: 0
     padding-bottom: 50px
-    scroll-snap-type: y mandatory
+    width: calc(100vw - 10px)
+    padding: 0 5px
 
 h1, h2, h3, h4, h5, h6 
     color: $lgtgrey
@@ -52,7 +53,6 @@ header
     z-index: 2
     background: $green
     position: relative
-    scroll-snap-align: start
     &::after 
         content: ""
         border: 1px solid gold
@@ -127,7 +127,6 @@ header
     position: relative
     display: grid
     grid-template-columns: 1fr 1fr 1fr
-    scroll-snap-align: start
     h4
         text-align: center
     .imgHolder 
@@ -136,17 +135,13 @@ header
         position: relative
 
 .projects 
-    display: grid
-    grid-template-columns: 1fr 1fr
-    width: 100%
-    position: relative
-    padding: 0 20px
-    scroll-snap-align: start
-    .gallery 
-        width: calc(50vw - 30px)
-        justify-content: center
-    h4 
-        text-align: center
+    overflow-x: hidden
+    height: 300px
+    display: flex
+    align-items: center
+    img 
+        height: 250px
+        margin: 0 20px
     
 #codeDrawer 
     background: #000000
@@ -156,7 +151,6 @@ header
     height: 0
     overflow: hidden
     transition: height 0.8s ease-out
-    scroll-snap-align: start
     &.show 
         height: 300px
         transition: height 0.5s ease-out
@@ -190,15 +184,6 @@ header
         &:hover 
             transform: scale(1.2)
             cursor: pointer
-
-.gallery 
-    display: inline-flex
-    overflow-x: scroll
-    width: 300px
-    height: 150px
-    img 
-        height: 120px
-        margin: 20px 10px
 
 .detailBlock 
     margin: 0 20px
