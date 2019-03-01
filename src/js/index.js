@@ -1,17 +1,19 @@
 import * as _ from 'lodash';
 import Popper from 'popper.js'
 import Gallery from './Gallery'
+import toolTip from './Gallery'
+import returnCode from './snippets'
 
 // Language Icons
-import html5svg from '../img/icons/html5.svg';
-import css3svg from '../img/icons/css3.svg';
-import jssvg from '../img/icons/js.svg';
-import jqsvg from '../img/icons/jquery.svg';
-import jsonsvg from '../img/icons/json.png';
-import mysqlsvg from '../img/icons/mysql.svg';
-import phpsvg from '../img/icons/php.svg';
-import swiftsvg from '../img/icons/swift.svg';
-import kotlinsvg from '../img/icons/kotlin.svg';
+import html5svg from '../img/icons/html5.svg'
+import css3svg from '../img/icons/css3.svg'
+import jssvg from '../img/icons/js.svg'
+import jqsvg from '../img/icons/jquery.svg'
+import jsonsvg from '../img/icons/json.png'
+import mysqlsvg from '../img/icons/mysql.svg'
+import phpsvg from '../img/icons/php.svg'
+import swiftsvg from '../img/icons/swift.svg'
+import kotlinsvg from '../img/icons/kotlin.svg'
 
 // Profile Pic
 import conorsvg from '../img/icons/conor.svg'
@@ -58,9 +60,7 @@ import splash from '../img/screenshots/dcpfm/splash.png'
 import claimlist from '../img/screenshots/dcpfm/claimlist.png'
 
 // Styles
-import '../styles/main.sass';
-
-import returnCode from './snippets';
+import '../styles/main.sass'
 
 var openDraw = false;
 var size = 200;
@@ -161,68 +161,67 @@ xcIcon.src = xcodesvg
 
 // Tools
 var gitIcon = document.getElementById('git')
+gitIcon.setAttribute("name", "Git")
 gitIcon.src = gitsvg
+toolTip(gitIcon)
 
 var sassIcon = document.getElementById('sass')
+sassIcon.setAttribute("name", "Sass")
 sassIcon.src = sasssvg
+toolTip(sassIcon)
 
 var webpIcon = document.getElementById('webpack')
+webpIcon.setAttribute("name", "Webpack")
 webpIcon.src = webpsvg
+toolTip(webpIcon)
 
 var gulpIcon = document.getElementById('gulp')
+homeImg.setAttribute("name", "Gulp")
 gulpIcon.src = gulpsvg
+toolTip(gulpIcon)
 
 // Projects
-var homeImg = document.createElement('img');
+var homeImg = document.createElement('img')
+homeImg.setAttribute("name", "PFORM Web Application")
 homeImg.src = home
 
-var objImg = document.createElement('img');
+var objImg = document.createElement('img')
+objImg.setAttribute("name", "PFORM Web Application")
 objImg.src = objectives
 
-var feedbackImg = document.createElement('img');
+var feedbackImg = document.createElement('img')
+feedbackImg.setAttribute("name", "PFORM Web Application")
 feedbackImg.src = feedback
 
 var reportsImg = document.createElement('img')
 reportsImg.setAttribute("name", "PFORM Web Application")
 reportsImg.src = reportsopen
-toolTip(reportsImg)
-
-gallery.appendChild(homeImg)
-gallery.appendChild(objImg)
-gallery.appendChild(feedbackImg)
-gallery.appendChild(reportsImg)
 
 var arrivedImg = document.createElement('img')
 arrivedImg.setAttribute("name", "DCPFM Android App")
 arrivedImg.src = arrived
-toolTip(arrivedImg)
 
 var cameraImg = document.createElement('img')
 cameraImg.setAttribute("name", "DCPFM Android App")
 cameraImg.src = camera
-toolTip(cameraImg)
 
 var splashImg = document.createElement('img')
 splashImg.setAttribute("name", "DCPFM Android App")
 splashImg.src = splash
-toolTip(splashImg)
 
 var claimlistImg = document.createElement('img')
 claimlistImg.setAttribute("name", "DCPFM Android App")
 claimlistImg.src = claimlist
-toolTip(claimlistImg)
 
-gallery.appendChild(splashImg)
-gallery.appendChild(arrivedImg)
-gallery.appendChild(cameraImg)
-gallery.appendChild(claimlistImg)
+gallery.add([
+  homeImg, objImg, feedbackImg, reportsImg,
+  splashImg, arrivedImg, cameraImg, claimlistImg
+])
 
 var n = 0
 var m = 0
 var r = 0
 var animationID
-var selected
-var projectClicked = false
 
 function scrollGallery() {
   gallery.style.marginLeft = n + "px" 

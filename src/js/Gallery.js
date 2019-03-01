@@ -6,14 +6,16 @@ export class Gallery {
     this.element = element
   }
 
-  add = (el) => {
-    toolTip(el)
-    this.element.appendChild(el)
+  add = (array) => {
+      array.forEach(el => {
+        toolTip(el)
+        this.element.appendChild(el)  
+      })
   }
 
 }
 
-function toolTip(element) {
+export function toolTip(element) {
     return new Tooltip(element, {
       title: element.getAttribute("name"),
       placement: "bottom"
