@@ -1,5 +1,6 @@
 import * as _ from 'lodash';
-import popper from 'popper.js'
+import Popper from 'popper.js'
+import Gallery from './Gallery'
 
 // Language Icons
 import html5svg from '../img/icons/html5.svg';
@@ -64,12 +65,12 @@ import returnCode from './snippets';
 var openDraw = false;
 var size = 200;
 
-var codeDrawer = document.getElementById('codeDrawer');
-var codeText = document.querySelector('#codeDrawer p.code');
-var upArrow = document.querySelector('.up-arrow');
-var profileName = document.getElementById('profileName');
-var pic = document.getElementById('conor');
-var gallery = document.getElementById('gallery');
+var codeDrawer = document.getElementById('codeDrawer')
+var codeText = document.querySelector('#codeDrawer p.code')
+var upArrow = document.querySelector('.up-arrow')
+var profileName = document.getElementById('profileName')
+var pic = document.getElementById('conor')
+var gallery = new Gallery(document.getElementById('gallery'))
 
 var htmlIcon = document.getElementById('html');
 htmlIcon.src = html5svg;
@@ -181,25 +182,35 @@ objImg.src = objectives
 var feedbackImg = document.createElement('img');
 feedbackImg.src = feedback
 
-var reportsImg = document.createElement('img');
+var reportsImg = document.createElement('img')
+reportsImg.setAttribute("name", "PFORM Web Application")
 reportsImg.src = reportsopen
+toolTip(reportsImg)
 
 gallery.appendChild(homeImg)
 gallery.appendChild(objImg)
 gallery.appendChild(feedbackImg)
 gallery.appendChild(reportsImg)
 
-var arrivedImg = document.createElement('img');
+var arrivedImg = document.createElement('img')
+arrivedImg.setAttribute("name", "DCPFM Android App")
 arrivedImg.src = arrived
+toolTip(arrivedImg)
 
 var cameraImg = document.createElement('img')
+cameraImg.setAttribute("name", "DCPFM Android App")
 cameraImg.src = camera
+toolTip(cameraImg)
 
 var splashImg = document.createElement('img')
+splashImg.setAttribute("name", "DCPFM Android App")
 splashImg.src = splash
+toolTip(splashImg)
 
 var claimlistImg = document.createElement('img')
+claimlistImg.setAttribute("name", "DCPFM Android App")
 claimlistImg.src = claimlist
+toolTip(claimlistImg)
 
 gallery.appendChild(splashImg)
 gallery.appendChild(arrivedImg)
@@ -234,20 +245,7 @@ gallery.addEventListener('mouseover', () => {
 
 gallery.addEventListener('mouseout', () => {
   animationID = requestAnimationFrame(scrollGallery)
-  // if (projectClicked) {
-  //   setTimeout(() => {
-  //     selected.classList.remove("selected")
-  //   }, 1000)
-  // }
 })
-
-// gallery.addEventListener('click', (e) => {
-//   cancelAnimationFrame(animationID)
-//   gallery.style.height = "500px"
-//   selected = e.target
-//   selected.classList.add("selected")
-//   projectClicked = true
-// })
 
 // History
 var wilxIcon = document.getElementById('wilxite')
@@ -270,13 +268,19 @@ trfIcon.src = trfsvg
 
 // External
 var githubIcon = document.getElementById('github')
+githubIcon.setAttribute("name", "GitHub")
 githubIcon.src = githubsvg
+toolTip(githubIcon)
 
 var stackIcon = document.getElementById('stackOverflow')
+stackIcon.setAttribute("name", "StackOverflow")
 stackIcon.src = stacksvg
+toolTip(stackIcon)
 
 var linkIcon = document.getElementById('linkedIn')
+linkIcon.setAttribute("name", "LinkedIn")
 linkIcon.src = linkedsvg
+toolTip(linkIcon)
 
 window.onscroll = (e) => {
     if (document.documentElement.scrollTop >= 100 && !openDraw) {

@@ -1,7 +1,8 @@
 export default function returnCode(code) {
   switch (code) {
     case 'php':
-      return `<pre><?php
+      return `
+<pre><?php
       
 require dirname(__DIR__) . '/vendor/autoload.php';
 
@@ -12,25 +13,26 @@ $router = new CoreRouter();
 $router->dispatch($_SERVER['REQUEST_URI']);</pre>`;
 
     case 'js':
-      return `<pre>function navigate(url, data, complete) {
-window.history.pushState({href: url}, '', url);
-if(!data) data = {};
-url += " #content > * ";
-load(url, data, complete);
+      return `
+<pre>function navigate(url, data, complete) {
+    window.history.pushState({href: url}, '', url);
+    if(!data) data = {};
+    url += " #content > * ";
+    load(url, data, complete);
 }
 
 function exit(fallback) {
-current = store.history.pop();
-previous = store.history.pop();
-prevData = store.data.pop();
+    current = store.history.pop();
+    previous = store.history.pop();
+    prevData = store.data.pop();
 
-if(fallback) store.fallback = fallback;
+    if(fallback) store.fallback = fallback;
 
-load(previous, prevData);
+    load(previous, prevData);
 }</pre>`;
 
     case 'jquery':
-      return `<pre>    $(".feedbackList").on('click', '.reply', function() {
+      return `<pre>$(".feedbackList").on('click', '.reply', function() {
     fbId = $(this).attr('fbId');
     $(".placeholder").load('/inc/conversation/float.php', {
         fbId : fbId

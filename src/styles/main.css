@@ -175,6 +175,7 @@ header img:hover {
 }
 
 .projects img {
+  position: relative;
   height: 250px;
   margin: 0 20px;
   transition: all 0.5s ease;
@@ -187,6 +188,14 @@ header img:hover {
 
 .projects img.selected {
   height: 500px;
+}
+
+.tooltip {
+  top: -30px;
+  background: #071425;
+  padding: 3px 7px;
+  border-radius: 2px;
+  box-shadow: 1px 1px #0f2b50;
 }
 
 #codeDrawer {
