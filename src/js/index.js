@@ -241,14 +241,6 @@ gallery.addEventListener("mouseout", () => {
   // }
 });
 
-// gallery.addEventListener('click', (e) => {
-//   cancelAnimationFrame(animationID)
-//   gallery.style.height = "500px"
-//   selected = e.target
-//   selected.classList.add("selected")
-//   projectClicked = true
-// })
-
 // History
 var wilxIcon = document.getElementById("wilxite");
 wilxIcon.src = wilxitesvg;
