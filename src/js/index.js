@@ -61,44 +61,44 @@ import "../styles/main.sass";
 
 import returnCode from "./snippets";
 
-var openDraw = false;
-var size = 200;
+let openDraw = false;
+let size = 200;
 
-var codeDrawer = document.getElementById("codeDrawer");
-var codeText = document.querySelector("#codeDrawer p.code");
-var upArrow = document.querySelector(".up-arrow");
-var profileName = document.getElementById("profileName");
-var pic = document.getElementById("conor");
-var gallery = document.getElementById("gallery");
+const codeDrawer = document.getElementById("codeDrawer");
+const codeText = document.querySelector("#codeDrawer p.code");
+const upArrow = document.querySelector(".up-arrow");
+const profileName = document.getElementById("profileName");
+const pic = document.getElementById("conor");
+const gallery = document.getElementById("gallery");
 
-var htmlIcon = document.getElementById("html");
+const htmlIcon = document.getElementById("html");
 htmlIcon.src = html5svg;
 
-var cssIcon = document.getElementById("css");
+const cssIcon = document.getElementById("css");
 cssIcon.src = css3svg;
 
-var jsIcon = document.getElementById("js");
+const jsIcon = document.getElementById("js");
 jsIcon.src = jssvg;
 
-var jqueryIcon = document.getElementById("jquery");
+const jqueryIcon = document.getElementById("jquery");
 jqueryIcon.src = jqsvg;
 
-var jsonIcon = document.getElementById("json");
+const jsonIcon = document.getElementById("json");
 jsonIcon.src = jsonsvg;
 
-var sqlIcon = document.getElementById("mysql");
+const sqlIcon = document.getElementById("mysql");
 sqlIcon.src = mysqlsvg;
 
-var phpIcon = document.getElementById("php");
+const phpIcon = document.getElementById("php");
 phpIcon.src = phpsvg;
 
-var swiftIcon = document.getElementById("swift");
+const swiftIcon = document.getElementById("swift");
 swiftIcon.src = swiftsvg;
 
-var kotlinIcon = document.getElementById("kotlin");
+const kotlinIcon = document.getElementById("kotlin");
 kotlinIcon.src = kotlinsvg;
 
-var langIcons = [
+const langIcons = [
   htmlIcon,
   cssIcon,
   jsIcon,
@@ -133,55 +133,55 @@ function langClick(element) {
 }
 
 // Profile
-var conor = document.getElementById("conor");
+const conor = document.getElementById("conor");
 conor.src = conorsvg;
 
-var phoneIcon = document.getElementById("phone");
+const phoneIcon = document.getElementById("phone");
 phoneIcon.src = phonesvg;
 
-var sendIcon = document.getElementById("mail");
+const sendIcon = document.getElementById("mail");
 sendIcon.src = sendsvg;
 
 // Programs
-var illustIcon = document.getElementById("illustrator");
+const illustIcon = document.getElementById("illustrator");
 illustIcon.src = illustsvg;
 
-var vsIcon = document.getElementById("vscode");
+const vsIcon = document.getElementById("vscode");
 vsIcon.src = vssvg;
 
-var androidIcon = document.getElementById("androidstudio");
+const androidIcon = document.getElementById("androidstudio");
 androidIcon.src = androidsvg;
 
-var krakenIcon = document.getElementById("gitkraken");
+const krakenIcon = document.getElementById("gitkraken");
 krakenIcon.src = krakensvg;
 
-var xcIcon = document.getElementById("xcode");
+const xcIcon = document.getElementById("xcode");
 xcIcon.src = xcodesvg;
 
 // Tools
-var gitIcon = document.getElementById("git");
+const gitIcon = document.getElementById("git");
 gitIcon.src = gitsvg;
 
-var sassIcon = document.getElementById("sass");
+const sassIcon = document.getElementById("sass");
 sassIcon.src = sasssvg;
 
-var webpIcon = document.getElementById("webpack");
+const webpIcon = document.getElementById("webpack");
 webpIcon.src = webpsvg;
 
-var gulpIcon = document.getElementById("gulp");
+const gulpIcon = document.getElementById("gulp");
 gulpIcon.src = gulpsvg;
 
 // Projects
-var homeImg = document.createElement("img");
+const homeImg = document.createElement("img");
 homeImg.src = home;
 
-var objImg = document.createElement("img");
+const objImg = document.createElement("img");
 objImg.src = objectives;
 
-var feedbackImg = document.createElement("img");
+const feedbackImg = document.createElement("img");
 feedbackImg.src = feedback;
 
-var reportsImg = document.createElement("img");
+const reportsImg = document.createElement("img");
 reportsImg.src = reportsopen;
 
 gallery.appendChild(homeImg);
@@ -189,16 +189,16 @@ gallery.appendChild(objImg);
 gallery.appendChild(feedbackImg);
 gallery.appendChild(reportsImg);
 
-var arrivedImg = document.createElement("img");
+const arrivedImg = document.createElement("img");
 arrivedImg.src = arrived;
 
-var cameraImg = document.createElement("img");
+const cameraImg = document.createElement("img");
 cameraImg.src = camera;
 
-var splashImg = document.createElement("img");
+const splashImg = document.createElement("img");
 splashImg.src = splash;
 
-var claimlistImg = document.createElement("img");
+const claimlistImg = document.createElement("img");
 claimlistImg.src = claimlist;
 
 gallery.appendChild(splashImg);
@@ -206,12 +206,12 @@ gallery.appendChild(arrivedImg);
 gallery.appendChild(cameraImg);
 gallery.appendChild(claimlistImg);
 
-var n = 0;
-var m = 0;
-var r = 0;
-var animationID;
-var selected;
-var projectClicked = false;
+let n = 0;
+let m = 0;
+let r = 0;
+let animationID;
+let selected;
+let projectClicked = false;
 
 function scrollGallery() {
   gallery.style.marginLeft = n + "px";
@@ -242,32 +242,30 @@ gallery.addEventListener("mouseout", () => {
 });
 
 // History
-var wilxIcon = document.getElementById("wilxite");
+const wilxIcon = document.getElementById("wilxite");
 wilxIcon.src = wilxitesvg;
 
-var radIcon = document.getElementById("radius");
+const radIcon = document.getElementById("radius");
 radIcon.src = radiussvg;
 
-var foppIcon = document.getElementById("fopp");
-foppIcon.src = foppsvg;
-
-var uobIcon = document.getElementById("uob");
+const uobIcon = document.getElementById("uob");
 uobIcon.src = uobsvg;
 
-var stbrnIcon = document.getElementById("stbrn");
+const stbrnIcon = document.getElementById("stbrn");
 stbrnIcon.src = stbrnsvg;
 
-var trfIcon = document.getElementById("trfwia");
+const trfIcon = document.getElementById("trfwia");
 trfIcon.src = trfsvg;
 
 // External
-var githubIcon = document.getElementById("github");
+const githubIcon = document.getElementById("github");
 githubIcon.src = githubsvg;
+githubIcon.on("click", () => {});
 
-var stackIcon = document.getElementById("stackOverflow");
+const stackIcon = document.getElementById("stackOverflow");
 stackIcon.src = stacksvg;
 
-var linkIcon = document.getElementById("linkedIn");
+const linkIcon = document.getElementById("linkedIn");
 linkIcon.src = linkedsvg;
 
 window.onscroll = e => {

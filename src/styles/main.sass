@@ -199,6 +199,8 @@ header
         img 
             margin: 20px
             align-self: center
+            width: 100px
+            height: auto
 
 .flex 
     display: flex
@@ -206,6 +208,12 @@ header
     &.two
         * 
             width: calc(50% - 20px)
+
+ul.flexList
+    width: 100%
+    > li
+        display: flex
+        justify-content: space-between
 
 .block 
     background: opacify(#071425, 0.22)
