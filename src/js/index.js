@@ -136,11 +136,11 @@ function langClick(element) {
 const conor = document.getElementById("conor");
 conor.src = conorsvg;
 
-const phoneIcon = document.getElementById("phone");
-phoneIcon.src = phonesvg;
+// const phoneIcon = document.getElementById("phone");
+// phoneIcon.src = phonesvg;
 
-const sendIcon = document.getElementById("mail");
-sendIcon.src = sendsvg;
+// const sendIcon = document.getElementById("mail");
+// sendIcon.src = sendsvg;
 
 // Programs
 const illustIcon = document.getElementById("illustrator");
