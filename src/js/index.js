@@ -260,13 +260,22 @@ trfIcon.src = trfsvg;
 // External
 const githubIcon = document.getElementById("github");
 githubIcon.src = githubsvg;
-githubIcon.on("click", () => {});
+githubIcon.addEventListener("click", () => {
+  window.location.href = "https://github.com/c-sinclair";
+});
 
 const stackIcon = document.getElementById("stackOverflow");
 stackIcon.src = stacksvg;
+stackIcon.addEventListener("click", () => {
+  window.location.href = "https://stackoverflow.com/users/10590986/c-sinclair";
+});
 
 const linkIcon = document.getElementById("linkedIn");
 linkIcon.src = linkedsvg;
+linkIcon.addEventListener("click", () => {
+  window.location.href =
+    "https://www.linkedin.com/in/conor-sinclair-22444a158/";
+});
 
 window.onscroll = e => {
   if (document.documentElement.scrollTop >= 100 && !openDraw) {
