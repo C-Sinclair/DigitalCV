@@ -1,8 +1,7 @@
 export default function returnCode(code) {
   switch (code) {
     case "php":
-      return `<pre><?php
-      require_once($_SERVER["DOCUMENT_ROOT"] . "/inc/globals.php");
+      return `<pre><code class="language-php"><?php
       
       class BasketPricing
       {
@@ -43,8 +42,14 @@ export default function returnCode(code) {
           }
         }</pre>`;
 
+error_reporting(E_ALL);<br>set_error_handler('CoreError::errorHandler');
+set_exception_handler('CoreError::exceptionHandler');
+
+$router = new CoreRouter();
+$router->dispatch($_SERVER['REQUEST_URI']);</code></pre>`;
+
     case "js":
-      return `<pre>function navigate(url, data, complete) {
+      return `<pre><code class="language-js">const navigate = (url, data, complete) => {
 window.history.pushState({href: url}, '', url);
 if(!data) data = {};
 url += " #content > * ";
