@@ -3,67 +3,61 @@ export default function returnCode(code) {
     case "php":
       return `<pre><code class="language-php"><?php
       
-      class BasketPricing
-      {
-          private $_bsId;
-          private $_cnId;
-          private $_db;
-          private $voucher;
-          private $services = array();
-          private $items = array();
-          private $vatRate = 0.2;
-      
-          public function __construct($bsId, $cnId, $offset = "0", $limit = "0")
-          {
-              $this->_bsId = $bsId;
-              $this->_cnId = $cnId;
-              $this->_offset = $offset ?: "0";
-              $this->_limit = $limit ?: "0";
-              $this->_db = new DB;
-      
-              $this->getInfo();
-              $this->getData();
-          }
-      
-          private function getInfo()
-          {
-              $this->_db->query("SELECT name, active, bsVcId FROM baskets WHERE bsId = '" . $this->_bsId . "'");
-              $this->_db->next_record();
-              list(
-                  $name,
-                  $active,
-                  $vcId
-              ) = $this->_db->Record;
-      
-              if ($vcId && $vcId != 0) {
-                  $this->voucherCode = $this->_db->getval("SELECT vcCode FROM vouchers WHERE vcId = '$vcId'", "vcCode");
-                  $this->voucher = new BasketVoucher($vcId);
-              }
-          }
-        }</pre>`;
+class BasketPricing
+{
+    private $_bsId;
+    private $_cnId;
+    private $_db;
+    private $voucher;
+    private $services = array();
+    private $items = array();
+    private $vatRate = 0.2;
 
-error_reporting(E_ALL);<br>set_error_handler('CoreError::errorHandler');
-set_exception_handler('CoreError::exceptionHandler');
+    public function __construct($bsId, $cnId, $offset = "0", $limit = "0")
+    {
+        $this->_bsId = $bsId;
+        $this->_cnId = $cnId;
+        $this->_offset = $offset ?: "0";
+        $this->_limit = $limit ?: "0";
+        $this->_db = new DB;
 
-$router = new CoreRouter();
-$router->dispatch($_SERVER['REQUEST_URI']);</code></pre>`;
+        $this->getInfo();
+        $this->getData();
+    }
+
+    private function getInfo()
+    {
+        $this->_db->query("SELECT name, active, bsVcId FROM baskets WHERE bsId = '" . $this->_bsId . "'");
+        $this->_db->next_record();
+        list(
+            $name,
+            $active,
+            $vcId
+        ) = $this->_db->Record;
+
+        if ($vcId && $vcId != 0) {
+            $this->voucherCode = $this->_db->getval("SELECT vcCode FROM vouchers WHERE vcId = '$vcId'", "vcCode");
+            $this->voucher = new BasketVoucher($vcId);
+        }
+    }
+}</pre>`;
 
     case "js":
       return `<pre><code class="language-js">const navigate = (url, data, complete) => {
-window.history.pushState({href: url}, '', url);
-if(!data) data = {};
-url += " #content > * ";
-load(url, data, complete);
+    window.history.pushState({ href: url }, '', url);
+    if(!data) data = {};
+    url += " #content > * ";
+    load(url, data, complete);
 }
 
 const exit = fallback => {
-current = store.history.pop();
-previous = store.history.pop();
-prevData = store.data.pop();
+    current = store.history.pop();
+    previous = store.history.pop();
+    prevData = store.data.pop();
 
-if(fallback) store.fallback = fallback;
+    if(fallback) store.fallback = fallback;
 
-load(previous, prevData);
+    load(previous, prevData);
 }</code></pre>`;
 
     case "jquery":
@@ -116,6 +110,7 @@ INSERT INTO Users
     (usLastName, usFirstName, usAge)
 VALUES
     ("Sinclair", "Conor", 24);
+    
 SELECT 
     clSurname, 
     clFirstInitial, 
