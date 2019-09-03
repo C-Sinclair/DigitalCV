@@ -1,5 +1,6 @@
 import * as _ from "lodash";
 import popper from "popper.js";
+import Prism from "prismjs";
 
 // Language Icons
 import html5svg from "../img/icons/html5.svg";
@@ -125,12 +126,35 @@ upArrow.addEventListener("click", () => {
   openDraw = false;
 });
 
-function langClick(element) {
+const prismLang = code => {
+  switch (code) {
+    case "js":
+    case "jquery":
+      return Prism.languages.js;
+    case "html":
+      return Prism.languages.html;
+    case "css":
+      return Prism.languages.css;
+    case "json":
+      return Prism.languages.json;
+    case "sql":
+      return Prism.languages.sql;
+    case "php":
+      return Prism.languages.php;
+    case "swift":
+      return Prism.languages.swift;
+    case "kotlin":
+      return Prism.languages.kotlin;
+  }
+};
+
+const langClick = element => {
   openDraw = true;
   let code = element.getAttribute("id");
-  codeText.innerHTML = returnCode(code);
+  let html = Prism.highlight(returnCode(code), prismLang(code), code);
+  codeText.innerHTML = html;
   codeDrawer.classList.add("show");
-}
+};
 
 // Profile
 const conor = document.getElementById("conor");

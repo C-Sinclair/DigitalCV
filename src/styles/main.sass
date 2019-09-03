@@ -38,10 +38,11 @@ header
         width: 50px
         height: 50px
         &:hover 
-
-    img:hover,
-        transform: scale(1.2)
-        cursor: pointer
+            transform: scale(1.2)
+            cursor: pointer
+    @media screen and ( max-width: 700px )
+        display: none
+        
 
 #profileName 
     padding-top: 20px
@@ -131,6 +132,10 @@ header
         justify-self: center
         align-items: center
         position: relative
+    @media screen and ( max-width: 575px )
+        display: none
+            
+
 
 .projects 
     overflow-x: hidden

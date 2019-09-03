@@ -51,7 +51,7 @@ url += " #content > * ";
 load(url, data, complete);
 }
 
-function exit(fallback) {
+const exit = fallback => {
 current = store.history.pop();
 previous = store.history.pop();
 prevData = store.data.pop();
@@ -59,7 +59,7 @@ prevData = store.data.pop();
 if(fallback) store.fallback = fallback;
 
 load(previous, prevData);
-}</pre>`;
+}</code></pre>`;
 
     case "jquery":
       return `<pre>    $(".feedbackList").on('click', '.reply', function() {

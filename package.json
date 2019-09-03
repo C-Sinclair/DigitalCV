@@ -15,7 +15,8 @@
   },
   "dependencies": {
     "lodash": "^4.17.11",
-    "popper.js": "^1.14.6"
+    "popper.js": "^1.14.6",
+    "prismjs": "^1.17.1"
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",
