@@ -1,12 +1,5 @@
 /**
- * These declarations tell TypeScript that we allow import of images, e.g.
- * ```
-		<script lang='ts'>
-			import successkid from 'images/successkid.jpg';
-		</script>
-
-		<img src="{successkid}">
-	 ```
+ * These declarations tell TypeScript that we allow import of images
  */
 declare module "*.gif" {
 	const value: string;

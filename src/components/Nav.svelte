@@ -1,10 +1,11 @@
 <script>
-	import { fly } from 'svelte/transition'
-	import ThemeButton from '../components/ThemeButton.svelte'
+	import { link } from "svelte-routing";
+	import { fly } from "svelte/transition";
+	import ThemeButton from "../components/ThemeButton.svelte";
 
-	export let segment
+	export let segment;
 
-	let scrollY
+	let scrollY;
 </script>
 
 <style>
@@ -25,34 +26,33 @@
 	}
 </style>
 
-<svelte:window bind:scrollY={scrollY} />
+<svelte:window bind:scrollY />
 
 {#if scrollY > 10}
-<nav>
-	<ul>
-		<li 
-			in:fly="{{ y: -50, delay: 0 }}" 
-			out:fly="{{ y: -50, delay: 500 }}">
-			<a aria-current="{segment === undefined ? 'page' : undefined}" href=".">
-				Home
-			</a>
-		</li>
-		<li 
-			in:fly="{{ y: -50, delay: 400 }}" 
-			out:fly="{{ y: -50, delay: 250 }}">
-			<a rel=prefetch aria-current="{segment === 'contact' ? 'page' : undefined}" href="contact">
-				Contact Me
-			</a>
-		</li>
-		<li 
-			in:fly="{{ y: -50, delay: 800 }}" 
-			out:fly="{{ y: -50 }}">
-			<a href="https://blog.irrelevant.ninja">
-				Blog
-			</a>
-		</li>
-	</ul>
-</nav>
+	<nav>
+		<ul>
+			<li in:fly={{ y: -50, delay: 0 }} out:fly={{ y: -50, delay: 500 }}>
+				<a
+					aria-current={segment === undefined ? 'page' : undefined}
+					href="."
+					use:link>
+					Home
+				</a>
+			</li>
+			<li in:fly={{ y: -50, delay: 400 }} out:fly={{ y: -50, delay: 250 }}>
+				<a
+					rel="prefetch"
+					use:link
+					aria-current={segment === 'contact' ? 'page' : undefined}
+					href="contact">
+					Contact Me
+				</a>
+			</li>
+			<li in:fly={{ y: -50, delay: 800 }} out:fly={{ y: -50 }}>
+				<a href="https://blog.irrelevant.ninja"> Blog </a>
+			</li>
+		</ul>
+	</nav>
 {/if}
 
 <ThemeButton />
