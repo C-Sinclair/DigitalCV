@@ -9,4 +9,4 @@ View the current master at:
 [] Case studies pages
 [] Show me the code with link to my Github profile
 [] Links back to https://blog.irrelevant.ninja
-
+[] Thumbs up FAB which links to Firebase db
