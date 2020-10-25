@@ -3,7 +3,7 @@
 	import { fly } from "svelte/transition";
 	import { timer } from "rxjs";
 	import { startWith } from "rxjs/operators";
-	import ThemeButton from "./ThemeButton.svelte";
+	import ThemeButton from "./buttons/ThemeButton.svelte";
 
 	export let segment;
 

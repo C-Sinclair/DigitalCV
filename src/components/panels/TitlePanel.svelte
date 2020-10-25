@@ -1,6 +1,6 @@
 <script>
   import { scale, fade } from "svelte/transition";
-  import RoundedProfileImage from "./RoundedProfileImage.svelte";
+  import RoundedProfileImage from "../RoundedProfileImage.svelte";
 
   export let scrolled = false;
 </script>

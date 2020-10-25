@@ -5,5 +5,8 @@ service cloud.firestore {
       allow read: if true;
       allow write: if false;
     }
+    match /thumbsup/counter {
+      allow read, write: if true;
+    }
   }
 }

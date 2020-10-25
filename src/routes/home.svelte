@@ -1,5 +1,7 @@
 <script>
-	import TitlePanel from "../components/TitlePanel.svelte";
+	import ThumbsUpButton from "../components/buttons/ThumbsUpButton.svelte";
+
+	import TitlePanel from "../components/panels/TitlePanel.svelte";
 
 	let scrolled = 0;
 </script>
@@ -33,3 +35,5 @@
 <section>
 	<p>My stacks</p>
 </section>
+
+<ThumbsUpButton />

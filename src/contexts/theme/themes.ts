@@ -7,6 +7,7 @@ export const themes = [{
     trim: '#f7d20a',
     text: '#fff',
     profile: '#789f8a',
+    alt: '#767eae',
   }
 }, {
   name: 'dark',
@@ -16,5 +17,6 @@ export const themes = [{
     trim: '#eee',
     text: '#fff',
     profile: '#ddd',
+    alt: 'hsl(242deg 49% 15%)'
   }
 }]
