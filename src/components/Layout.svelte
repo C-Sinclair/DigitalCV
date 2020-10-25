@@ -1,5 +1,5 @@
 <script>
-	import ThemeContext from "../contexts/ThemeContext.svelte";
+	import ThemeContext from "../contexts/theme/ThemeContext.svelte";
 	import Nav from "./Nav.svelte";
 
 	export let segment;

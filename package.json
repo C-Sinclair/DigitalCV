@@ -3,11 +3,15 @@
   "description": "My Digital Curriculum Vitae",
   "version": "1.0.0",
   "scripts": {
+    "preinstall": "npx only-allow pnpm",
     "start": "snowpack dev",
     "build": "snowpack build",
-    "test": "jest"
+    "test": "jest",
+    "deploy": "firebase deploy"
   },
   "dependencies": {
+    "firebase": "^7.24.0",
+    "rxfire": "^3.13.5",
     "rxjs": "^6.6.3",
     "svelte": "^3.24.0",
     "svelte-routing": "^1.4.2"
