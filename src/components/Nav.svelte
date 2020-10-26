@@ -1,14 +1,14 @@
 <script>
 	import { Link } from "svelte-routing";
 	import { fly } from "svelte/transition";
-	import { timer } from "rxjs";
-	import { startWith } from "rxjs/operators";
 	import ThemeButton from "./buttons/ThemeButton.svelte";
+	import { secondsPassed } from "../util/timer";
 
 	export let segment;
 
 	let scrollY;
-	let timeout = timer(1000).pipe(startWith(false));
+
+	const timer = secondsPassed(1);
 </script>
 
 <style>
@@ -18,7 +18,7 @@
 		left: 0;
 		width: 100vw;
 		display: flex;
-		justify-content: space-between;
+		justify-content: flex-start;
 		z-index: 20;
 	}
 	ul {
@@ -57,20 +57,12 @@
 		height: 3px;
 		width: 100%;
 	}
-	.buttons {
-		margin-top: 10px;
-		transition: all 0.2s ease;
-	}
-	.scrolled.buttons {
-		margin-top: 15px;
-		margin-right: 60px;
-	}
 </style>
 
 <svelte:window bind:scrollY />
 
 <nav>
-	{#if scrollY > 10 || $timeout !== false}
+	{#if scrollY > 10 || $timer !== false}
 		<ul>
 			<li in:fly={{ y: -50, delay: 0 }} out:fly={{ y: -50, delay: 500 }}>
 				<Link aria-current={segment === undefined ? 'page' : undefined} to="">
@@ -89,8 +81,6 @@
 				<a href="https://blog.irrelevant.ninja"> Blog </a>
 			</li>
 		</ul>
+		<ThemeButton />
 	{/if}
-	<div class={`buttons ${scrollY > 10 ? 'scrolled' : ''}`}>
-		<ThemeButton scrolled={scrollY > 10} />
-	</div>
 </nav>

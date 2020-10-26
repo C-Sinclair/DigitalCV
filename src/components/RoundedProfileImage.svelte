@@ -9,6 +9,7 @@
     border-radius: 100px;
     border: 2px solid var(--theme-trim);
     overflow: hidden;
+    z-index: 22;
   }
 </style>
 

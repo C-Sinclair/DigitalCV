@@ -16,6 +16,7 @@ devDependencies:
   jest: 26.6.1
   snowpack: 2.15.1
   svelte-check: 1.1.1_svelte@3.29.4
+  svelte2tsx: 0.1.134_svelte@3.29.4
 lockfileVersion: 5.2
 packages:
   /@babel/code-frame/7.10.4:
@@ -2717,6 +2718,10 @@ packages:
       node: '>=0.10'
     resolution:
       integrity: sha1-6zkTMzRYd1y4TNGh+uBiEGu4dUU=
+  /dedent-js/1.0.1:
+    dev: true
+    resolution:
+      integrity: sha1-vuX7fJ5yfYXf+iRZDRDsGrElUwU=
   /deep-is/0.1.3:
     dev: true
     resolution:
@@ -4578,6 +4583,12 @@ packages:
     dev: false
     resolution:
       integrity: sha512-XsP+KhQif4bjX1kbuSiySJFNAehNxgLb6hPRGJ9QsUr8ajHkuXGdrHmFUTUUXhDwVX2R5bY4JNZEwbUiMhV+MA==
+  /lower-case/2.0.1:
+    dependencies:
+      tslib: 1.14.1
+    dev: true
+    resolution:
+      integrity: sha512-LiWgfDLLb1dwbFQZsSglpRj+1ctGnayXz3Uv0/WO8n558JycT5fg6zkNcnW0G68Nn0aEldTFeEfmjCfmqry/rQ==
   /lru-cache/6.0.0:
     dependencies:
       yallist: 4.0.0
@@ -4796,6 +4807,13 @@ packages:
     dev: true
     resolution:
       integrity: sha512-1nh45deeb5olNY7eX82BkPO7SSxR5SSYJiPTrTdFUVYwAl8CKMA5N9PjTYkHiRjisVcxcQ1HXdLhx2qxxJzLNQ==
+  /no-case/3.0.3:
+    dependencies:
+      lower-case: 2.0.1
+      tslib: 1.14.1
+    dev: true
+    resolution:
+      integrity: sha512-ehY/mVQCf9BL0gKfsJBvFJen+1V//U+0HQMPrWct40ixE4jnv0bfvxDbWtAHL9EcaPEOJHVVYKoQn1TlZUB8Tw==
   /node-addon-api/1.7.2:
     dev: true
     resolution:
@@ -5063,6 +5081,13 @@ packages:
     dev: true
     resolution:
       integrity: sha512-ugq4DFI0Ptb+WWjAdOK16+u/nHfiIrcE+sh8kZMaM0WllQKLI9rOUq6c2b7cwPkXdzfQESqvoqK6ug7U/Yyzug==
+  /pascal-case/3.1.1:
+    dependencies:
+      no-case: 3.0.3
+      tslib: 1.14.1
+    dev: true
+    resolution:
+      integrity: sha512-XIeHKqIrsquVTQL2crjq3NfJUxmdLasn3TYOU0VBM+UX2a6ztAWBlJQBePLGY7VHW8+2dRadeIPK5+KImwTxQA==
   /pascalcase/0.1.1:
     dev: true
     engines:
@@ -6085,6 +6110,17 @@ packages:
       node: '>= 8'
     resolution:
       integrity: sha512-oW0fGHlyFFMvzRtIvOs84b0fOc0gmZNQcL5Is3hxuTpvaYX3pfd8oHy4KnOvbq4Ca6SG6AHdRMk7OhApTo0NqA==
+  /svelte2tsx/0.1.134_svelte@3.29.4:
+    dependencies:
+      dedent-js: 1.0.1
+      pascal-case: 3.1.1
+      svelte: 3.29.4
+    dev: true
+    peerDependencies:
+      svelte: ^3.24
+      typescript: ^4.0.2
+    resolution:
+      integrity: sha512-Z+unWxZFtp+JF+9USMpRfKZPiVg0wDrxXXKthx4CCT7fe/O0Oxw/okOBMFxd+ymvBU3L5pGqGpnzHA0S5tA8DQ==
   /symbol-tree/3.2.4:
     dev: true
     resolution:
@@ -6199,7 +6235,6 @@ packages:
     resolution:
       integrity: sha512-3n1qG+/5kg+jrbTzwAykB5yRYtQCTqOGKq5U5PE3b0a1/mzo6snDhjGS0zJVJunO0NrT3Dg1MLy5TjWP/UJppg==
   /tslib/1.14.1:
-    dev: false
     resolution:
       integrity: sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==
   /tunnel-agent/0.6.0:
@@ -6578,3 +6613,4 @@ specifiers:
   svelte: ^3.24.0
   svelte-check: ^1.0.0
   svelte-routing: ^1.4.2
+  svelte2tsx: ^0.1.134

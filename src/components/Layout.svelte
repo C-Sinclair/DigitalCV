@@ -1,5 +1,6 @@
 <script>
 	import ThemeContext from "../contexts/theme/ThemeContext.svelte";
+	import Actions from "./buttons/Actions.svelte";
 	import Nav from "./Nav.svelte";
 
 	export let segment;
@@ -41,4 +42,5 @@
 	<main>
 		<slot />
 	</main>
+	<Actions />
 </ThemeContext>

@@ -1,9 +1,11 @@
 <script>
-	import ThumbsUpButton from "../components/buttons/ThumbsUpButton.svelte";
-
+	import Buzzwords from "../components/panels/Buzzwords.svelte";
 	import TitlePanel from "../components/panels/TitlePanel.svelte";
+	import { secondsPassed } from "../util/timer";
 
-	let scrolled = 0;
+	let scrollY = 0;
+
+	const twoSecsPassed = secondsPassed(2.5);
 </script>
 
 <style>
@@ -14,15 +16,29 @@
 		flex-direction: column;
 		align-items: center;
 	}
+	#buzzwords {
+		display: flex;
+		width: 100vw;
+		justify-content: center;
+		position: fixed;
+		top: calc(50vh + 40px);
+		z-index: 100;
+	}
 </style>
 
 <svelte:head>
 	<title>C Sinclair Curriclum Vitae</title>
 </svelte:head>
 
-<svelte:window bind:scrollY={scrolled} />
+<svelte:window bind:scrollY />
 
-<TitlePanel {scrolled} />
+<TitlePanel {scrollY} />
+
+{#if scrollY > 10 || $twoSecsPassed !== false}
+	<div id="buzzwords">
+		<Buzzwords {scrollY} />
+	</div>
+{/if}
 
 <section>
 	<p>Dev stuff</p>
@@ -35,5 +51,3 @@
 <section>
 	<p>My stacks</p>
 </section>
-
-<ThumbsUpButton />

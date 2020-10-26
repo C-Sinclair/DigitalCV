@@ -1,5 +1,6 @@
 <script>
   import { getContext } from "svelte";
+  import { fly } from "svelte/transition";
 
   export let scrolled = 0;
 
@@ -15,17 +16,18 @@
     z-index: 23;
     cursor: pointer;
     outline: none;
+    padding-left: 10px;
   }
   svg {
     fill: var(--theme-text);
-    font-size: 3em;
+    font-size: 1.5em;
   }
   svg.scrolled {
     font-size: 2.2em;
   }
 </style>
 
-<button on:click={toggle} title={themeString}>
+<button on:click={toggle} title={themeString} in:fly={{ y: -50, delay: 1200 }}>
   <svg
     class:scrolled
     stroke-width="0"

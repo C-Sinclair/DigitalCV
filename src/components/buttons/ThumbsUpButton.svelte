@@ -8,9 +8,7 @@
 
 <style>
   div {
-    position: fixed;
-    bottom: 10px;
-    right: 10px;
+    position: relative;
   }
   span {
     color: var(--theme-text);
@@ -41,9 +39,14 @@
     background-color: var(--theme-alt);
   }
 
-  .first-thumb {
-    animation: thumb1 infinite 1s linear forwards;
+  .thumb {
+    position: absolute;
     opacity: 0;
+    right: 0;
+  }
+
+  .first {
+    animation: thumb1 infinite 1s linear forwards;
   }
   @keyframes thumb1 {
     from {
@@ -60,10 +63,9 @@
     }
   }
 
-  .second-thumb {
+  .second {
     animation: thumb2 infinite 1s linear forwards;
     animation-delay: 0.3s;
-    opacity: 0;
   }
   @keyframes thumb2 {
     from {
@@ -80,10 +82,9 @@
     }
   }
 
-  .third-thumb {
+  .third {
     animation: thumb3 infinite 1s linear forwards;
     animation-delay: 0.6s;
-    opacity: 0;
   }
   @keyframes thumb3 {
     from {
@@ -100,10 +101,9 @@
     }
   }
 
-  .forth-thumb {
+  .forth {
     animation: thumb4 infinite 1s linear forwards;
     animation-delay: 0.9s;
-    opacity: 0;
   }
   @keyframes thumb4 {
     from {
@@ -120,10 +120,9 @@
     }
   }
 
-  .fifth-thumb {
+  .fifth {
     animation: thumb5 infinite 1s linear forwards;
     animation-delay: 1.2s;
-    opacity: 0;
   }
   @keyframes thumb5 {
     from {
@@ -154,19 +153,19 @@
     <ThumbsUp size={30} />
   </button>
   {#if hovering}
-    <div class="first-thumb">
+    <div class="first thumb">
       <ThumbsUp size={10} />
     </div>
-    <div class="second-thumb">
+    <div class="second thumb">
       <ThumbsUp size={10} />
     </div>
-    <div class="third-thumb">
+    <div class="third thumb">
       <ThumbsUp size={10} />
     </div>
-    <div class="forth-thumb">
+    <div class="forth thumb">
       <ThumbsUp size={10} />
     </div>
-    <div class="fifth-thumb">
+    <div class="fifth thumb">
       <ThumbsUp size={10} />
     </div>
   {/if}

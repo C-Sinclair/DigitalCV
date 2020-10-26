@@ -27,6 +27,7 @@
     "@types/node": "^14.11.1",
     "jest": "^26.2.2",
     "snowpack": "^2.15.1",
-    "svelte-check": "^1.0.0"
+    "svelte-check": "^1.0.0",
+    "svelte2tsx": "^0.1.134"
   }
 }
