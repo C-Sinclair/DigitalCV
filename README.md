@@ -15,5 +15,7 @@ View the current master at:
    [] Fire animation when user has clicked it
 [] Changelog.md which gets converted into its own page
 [] Vim buffer in bottom left whilst code is on screen
+[] Buzzwords page
+   [] Linked to via tooltip hover on revolving buzzword feed
 
 * Might not need the links to Firebase etc in the public index.html

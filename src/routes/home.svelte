@@ -1,5 +1,6 @@
 <script>
 	import Buzzwords from "../components/panels/Buzzwords.svelte";
+	import JavascriptPanel from "../components/panels/JavascriptPanel.svelte";
 	import TitlePanel from "../components/panels/TitlePanel.svelte";
 	import { secondsPassed } from "../util/timer";
 
@@ -15,6 +16,7 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+		position: relative;
 	}
 	#buzzwords {
 		display: flex;
@@ -23,6 +25,9 @@
 		position: fixed;
 		top: calc(50vh + 40px);
 		z-index: 100;
+	}
+	#js {
+		align-items: flex-end;
 	}
 </style>
 
@@ -40,8 +45,8 @@
 	</div>
 {/if}
 
-<section>
-	<p>Dev stuff</p>
+<section id="js">
+	<JavascriptPanel />
 </section>
 
 <section>
