@@ -7,7 +7,7 @@
 <style>
   .logo {
     position: fixed;
-    position: absolute;
+    /* position: absolute; */
     top: 80px;
     left: 20px;
     width: 50px;
@@ -18,6 +18,12 @@
     padding: 10px 20px;
     border-radius: 10px;
     background-color: var(--theme-secondary);
+  }
+  h1 {
+    font-family: "Dancing Script", sans-serif;
+    font-size: 2em;
+    color: var(--theme-trim);
+    margin: 0;
   }
 </style>
 

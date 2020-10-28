@@ -17,5 +17,7 @@ View the current master at:
 [] Vim buffer in bottom left whilst code is on screen
 [] Buzzwords page
    [] Linked to via tooltip hover on revolving buzzword feed
+[] Move c.sinclair.software to point to the new firebase deploy
+   [] Add a banner pointing to the old netlify site
 
 * Might not need the links to Firebase etc in the public index.html

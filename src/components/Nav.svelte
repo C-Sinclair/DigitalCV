@@ -19,7 +19,7 @@
 		width: 100vw;
 		display: flex;
 		justify-content: flex-start;
-		z-index: 20;
+		z-index: 10;
 	}
 	ul {
 		list-style: none;
