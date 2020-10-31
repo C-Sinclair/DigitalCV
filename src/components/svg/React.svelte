@@ -1,3 +1,9 @@
+<style>
+  svg {
+    fill: rgb(95, 217, 251);
+  }
+</style>
+
 <svg viewBox="0 0 24 24">
   <title>React icon</title>
   <circle cx="12" cy="12" r="2.139" />

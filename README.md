@@ -6,9 +6,12 @@ View the current master at:
    https://c.sinclair.software/
 
 ## TODO
+[x] Download link to CV pdf
+   [] Manage CV via cloud storage
+[] Pick a body font, the system one on Arch laptop looks good, but not translating to other machines
 [] Case studies pages
 [] Show me the code with link to my Github profile
-[] Links back to https://blog.irrelevant.ninja
+[x] Links back to https://blog.irrelevant.ninja
 [x] Thumbs up FAB which links to Firebase db
    [x] Realtime with Firestore
    [] Perfect the animation

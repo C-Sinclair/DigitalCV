@@ -1,18 +1,14 @@
 <script>
-	// import { interval } from "rxjs";
-	// import { map } from "rxjs/operators";
-
 	import Buzzwords from "../components/panels/Buzzwords.svelte";
-	import JavascriptPanel from "../components/panels/JavascriptPanel.svelte";
 	import Langs from "../components/panels/Langs.svelte";
+	import Projects from "../components/panels/Projects.svelte";
+	import Screenshots from "../components/panels/Screenshots.svelte";
 	import TitlePanel from "../components/panels/TitlePanel.svelte";
 	import { secondsPassed } from "../util/timer";
 
 	let scrollY = 0;
 
 	const twoSecsPassed = secondsPassed(2.5);
-
-	// const alt_ = interval(1000).pipe(map((i) => (i % 2 ? "" : "_")));
 </script>
 
 <style>
@@ -56,20 +52,9 @@
 	</div>
 {/if}
 
-<!-- <h1>Programming<span>{$alt_}</span></h1> -->
-
 <Langs />
 
-<!-- <section id="js">
-	<JavascriptPanel />
-</section> -->
+<Projects />
 
-<h1>Projects</h1>
-
-<section>
-	<p>Screenshots</p>
-</section>
-
-<section>
-	<p>My stacks</p>
-</section>
+<section />
+<section />

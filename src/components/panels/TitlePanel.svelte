@@ -62,7 +62,7 @@
       font-size: 32px;
     }
   }
-  @media (max-width: 600px) {
+  @media (max-width: 800px) {
     section.scrolled {
       padding-top: 40px;
     }

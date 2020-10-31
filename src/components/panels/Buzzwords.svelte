@@ -6,13 +6,20 @@
   let unique = {};
 
   const buzzwords = [
-    "Cutting Edge",
+    "Javascript",
     "Suave",
     "Business Minded",
+    "Redux",
+    "Cutting Edge",
+    "Svelte",
     "Moustache Wielding",
+    "Event Driven",
     "Passionate",
+    "Typescript",
     "Team Leading",
+    "Functional",
     "Vegetarian",
+    "Spirited",
     "Collaborative",
   ];
   const buzzword = interval(2500).pipe(

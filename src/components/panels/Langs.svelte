@@ -1,6 +1,7 @@
 <script lang="ts">
   import { scale, fade } from "svelte/transition";
   import { currentSection } from "../../util/scroll";
+  import Elixir from "../svg/Elixir.svelte";
   import Js from "../svg/JS.svelte";
   import Kotlin from "../svg/Kotlin.svelte";
   import React from "../svg/React.svelte";
@@ -18,7 +19,6 @@
   }
   article {
     width: 100vw;
-    margin: 10px;
     padding: 10px 20px;
     display: flex;
     justify-content: space-evenly;
@@ -33,6 +33,7 @@
     left: 20px;
     width: 50px;
     height: 50px;
+    text-align: center;
   }
 </style>
 
@@ -50,9 +51,12 @@
         <React />
       </div>
       <div in:scale={{ start: 4, delay: 1200 }} class="logo">
-        <Kotlin />
+        <Elixir />
       </div>
       <div in:scale={{ start: 4, delay: 1600 }} class="logo">
+        <Kotlin />
+      </div>
+      <div in:scale={{ start: 4, delay: 2000 }} class="logo">
         <Swift />
       </div>
     </article>

@@ -2,6 +2,7 @@
 	import { Link } from "svelte-routing";
 	import { fly } from "svelte/transition";
 	import ThemeButton from "./buttons/ThemeButton.svelte";
+	import Download from "./buttons/DownloadCV.svelte";
 	import { secondsPassed } from "../util/timer";
 
 	export let segment;
@@ -82,5 +83,6 @@
 			</li>
 		</ul>
 		<ThemeButton />
+		<Download />
 	{/if}
 </nav>
