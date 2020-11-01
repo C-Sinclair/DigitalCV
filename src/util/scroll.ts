@@ -7,12 +7,13 @@ const scrollY = fromEvent(window, 'scroll').pipe(
   map(e => window.scrollY)
 )
 
-type Section = "Title" | "Programming" | "Projects"
+type Section = "Title" | "Programming" | "Projects" | "End"
 
 const sectionMap: { [key: number]: Section } = {
   0: "Title",
   250: "Programming",
-  560: "Projects"
+  560: "Projects",
+  1160: "End"
 }
 const convertToSection = (i: number) => Object
   .entries(sectionMap)
