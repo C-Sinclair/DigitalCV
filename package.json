@@ -3,7 +3,6 @@
   "description": "My Digital Curriculum Vitae",
   "version": "1.0.0",
   "scripts": {
-    "preinstall": "npx only-allow pnpm",
     "start": "snowpack dev",
     "build": "snowpack build",
     "test": "jest",
