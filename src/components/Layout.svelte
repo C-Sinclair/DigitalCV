@@ -7,8 +7,7 @@
 </script>
 
 <style>
-	@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@500&display=swap&family=Dancing+Script:wght@700&family=Oswald:wght@200;400;700&display=swap");
-
+	@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@500&display=swap&family=Dancing+Script:wght@700&family=Oswald:wght@200;400;700&family=Nanum+Gothic&display=swap");
 	:global(html) {
 		background: var(--theme-primary);
 		color: var(--theme-text);
@@ -19,6 +18,7 @@
 
 	:global(body) {
 		margin: 0;
+		font-family: "Nanum Gothic", sans-serif;
 	}
 
 	:global(::-webkit-scrollbar) {

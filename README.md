@@ -8,7 +8,7 @@ View the current master at:
 ## TODO
 [x] Download link to CV pdf
    [] Manage CV via cloud storage
-[] Pick a body font, the system one on Arch laptop looks good, but not translating to other machines
+[x] Pick a body font, the system one on Arch laptop looks good, but not translating to other machines
 [] Case studies pages
 [] Show me the code with link to my Github profile
 [x] Links back to https://blog.irrelevant.ninja
