@@ -2,7 +2,6 @@
 	import Buzzwords from "../components/panels/Buzzwords.svelte";
 	import Langs from "../components/panels/Langs.svelte";
 	import Projects from "../components/panels/Projects.svelte";
-	import Screenshots from "../components/panels/Screenshots.svelte";
 	import TitlePanel from "../components/panels/TitlePanel.svelte";
 	import { secondsPassed } from "../util/timer";
 
@@ -31,11 +30,11 @@
 	/* #js {
 		align-items: flex-end;
 	} */
-	h1 {
+	/* h1 {
 		text-align: center;
 		font-family: "Source Code Pro", monospace;
 		letter-spacing: 7px;
-	}
+	} */
 </style>
 
 <svelte:head>
