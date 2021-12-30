@@ -28,7 +28,7 @@
           rel="prefetch"
           aria-current={segment === "contact" ? "page" : undefined}
         >
-          Contact Me
+          Contact
         </Link>
       </li>
       <li in:fly={{ y: -50, delay: 800 }} out:fly={{ y: -50 }}>
