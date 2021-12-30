@@ -111,6 +111,14 @@
 
 <Section {name}>
   <h1 in:fade out:fade>Programming Fluency</h1>
+  <p>
+    I have a fascination with programming languages. Nothing gives me more joy
+    than learning and mastering new paradigms and technologies.
+  </p>
+  <p>
+    Here is a selection of languages/frameworks I have the most technical
+    experience in.
+  </p>
   {#if selected}
     <div id="details" bind:this={details}>
       <div in:receive={{ key: selected.name }} class="icon">
@@ -138,7 +146,6 @@
 
 <style>
   ul {
-    width: 100%;
     padding: 10px 0;
     list-style: none;
     display: grid;
@@ -148,17 +155,19 @@
     justify-content: space-between;
   }
   li.logo {
-    width: 100%;
-    height: 100%;
-    min-width: 100px;
-    min-height: 100px;
+    width: calc(100% - 10px);
+    height: calc(100% - 10px);
+    min-width: calc(100% - 10px);
+    min-height: calc(100px - 10px);
     text-align: center;
     cursor: pointer;
     position: relative;
+    align-self: center;
+    justify-self: center;
     transition: transform 0.1s ease;
   }
   li.logo:hover {
-    transform: scale(1.05);
+    transform: scale(1.02);
   }
   li.logo:before {
     content: "";

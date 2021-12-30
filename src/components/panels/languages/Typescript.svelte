@@ -18,4 +18,9 @@
     for instance I've seen the power of leveraging tools like graphql-codegen
     for adding typesafety between isolated systems.
   </p>
+  <p>
+    Professionally, my current project has been solely Typescript based from the
+    start, whereas in previous projects I have been instrumental in pushing for
+    Javascript codebases to slowly incorporate Typescript.
+  </p>
 </Article>

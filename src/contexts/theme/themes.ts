@@ -5,6 +5,7 @@ export const themes = [
     colours: {
       primary: "#4F6F62",
       secondary: "#789F8A",
+      "secondary-light": "#789F8A99",
       trim: "#f7d20a",
       "trim-light": "#f7d20a99",
       text: "#fff",
@@ -18,6 +19,7 @@ export const themes = [
     colours: {
       primary: "#000",
       secondary: "#111",
+      "secondary-light": "#11111199",
       trim: "#eee",
       "trim-light": "#eeeeee99",
       text: "#fff",
