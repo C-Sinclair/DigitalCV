@@ -1,17 +1,8 @@
-<script lang="ts">
-  import { scale } from "svelte/transition";
-  import { currentSection } from "../../util/scroll";
-  import Js from "../svg/JS.svelte";
+<script>
+  import Article from "./Article.svelte";
 </script>
 
-{#if $currentSection === "JS"}
-  <div in:scale={{ start: 4 }} class="logo">
-    <Js />
-  </div>
-{/if}
-
-<article>
-  <h1>Javascript</h1>
+<Article title="Javascript">
   <p>
     I hold a deep passion for crafting smooth interactive experiences, and there
     is no better language for user interaction than Javascript.
@@ -34,27 +25,4 @@
     I find the ES6 improvements to the language and ecosystem have allowed the
     developer in the driving seat to be incredibly expressive.
   </p>
-</article>
-
-<style>
-  .logo {
-    position: fixed;
-    /* position: absolute; */
-    top: 80px;
-    left: 20px;
-    width: 50px;
-  }
-  article {
-    width: 50vw;
-    margin: 10px;
-    padding: 10px 20px;
-    border-radius: 10px;
-    background-color: var(--theme-secondary);
-  }
-  h1 {
-    font-family: "Dancing Script", sans-serif;
-    font-size: 2em;
-    color: var(--theme-trim);
-    margin: 0;
-  }
-</style>
+</Article>

@@ -1,9 +1,9 @@
 <script>
   import Buzzwords from "../components/panels/Buzzwords.svelte";
-  import Langs from "../components/panels/Langs.svelte";
+  import Languages from "../components/panels/Languages.svelte";
   import Projects from "../components/panels/Projects.svelte";
-  import TitlePanel from "../components/panels/TitlePanel.svelte";
-  import EndPanel from "../components/panels/EndPanel.svelte";
+  import TitlePanel from "../components/panels/Title.svelte";
+  import EndPanel from "../components/panels/End.svelte";
   import { secondsPassed } from "../util/timer";
 
   let scrollY = 0;
@@ -25,7 +25,7 @@
   </div>
 {/if}
 
-<Langs />
+<Languages />
 
 <Projects />
 

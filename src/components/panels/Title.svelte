@@ -77,4 +77,14 @@
       font-size: 1.5em;
     }
   }
+  @media (max-width: 600px) {
+    h1 {
+      letter-spacing: 0.6em;
+    }
+  }
+  @media (max-width: 450px) {
+    h1 {
+      letter-spacing: 0.4em;
+    }
+  }
 </style>

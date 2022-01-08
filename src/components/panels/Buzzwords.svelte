@@ -26,6 +26,7 @@
     "Vegetarian",
     "Spirited",
     "Collaborative",
+    "Thoughtful",
   ];
   const buzzword = interval(2500).pipe(
     map((i) => buzzwords[i % buzzwords.length]),

@@ -29,4 +29,9 @@
     color: var(--theme-trim);
     margin: 0 0 15px;
   }
+  @media (max-width: 520px) {
+    .wrap {
+      max-width: calc(100vw - 20px);
+    }
+  }
 </style>
