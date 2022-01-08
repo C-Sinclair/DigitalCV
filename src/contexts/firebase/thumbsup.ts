@@ -1,7 +1,6 @@
 import { firestore } from "./firebase";
-import { doc, updateDoc } from "firebase/firestore";
-import { filter, map, startWith, tap } from "rxjs/operators";
-import { docData } from "rxfire/firestore";
+import { doc, updateDoc, getDoc } from "firebase/firestore/lite";
+import { filter, startWith, switchMap, map, tap } from "rxjs/operators";
 import { BehaviorSubject, combineLatest, from } from "rxjs";
 
 const ref = doc(firestore, "thumbsup", "counter");
@@ -10,24 +9,41 @@ interface ThumbsUpCounter {
   total: number;
 }
 
-export const thumbsUp = docData(ref).pipe(
-  map<ThumbsUpCounter, number>((doc) => doc.total),
-  startWith(0),
-  tap(console.log)
-);
+async function getThumbsUp() {
+  const doc = await getDoc(ref);
+  const { total } = doc.data() as ThumbsUpCounter;
+  return total;
+}
 
+/**
+ * Local state of thumbs up total
+ */
+export const thumbsUp = new BehaviorSubject(0);
+
+/**
+ * Fetches the database value of thumbsup
+ * Will default to current local value whilst fetching
+ */
+const fetch$ = from(getThumbsUp()).pipe(startWith(thumbsUp.getValue()));
+
+/**
+ * Simple toggle between whether user has clicked or not
+ * Will reset ready to be reclicked after database update
+ */
 const pushes = new BehaviorSubject(false);
-
+const resetPushes = () => pushes.next(false);
 export const pushThumbsUp = () => pushes.next(true);
 
 /**
  * Monitors both user clicks and current value
  * If clicked, update db with +1 to current
  */
-combineLatest([pushes, thumbsUp])
-  .pipe(filter(([pushed, _]) => pushed))
-  .subscribe(([_, total]) => {
-    console.log(`You've hit the subscribe method ${_} ${total}`);
-    updateDoc(ref, { total: total + 1 });
-    pushes.next(false);
-  });
+combineLatest([pushes, thumbsUp.pipe(switchMap(() => fetch$))])
+  .pipe(
+    filter(([pushed, _]) => pushed),
+    tap(resetPushes),
+    map(([_, total]) => total + 1),
+    tap(thumbsUp.next),
+    switchMap((total) => from(updateDoc(ref, { total })))
+  )
+  .subscribe();

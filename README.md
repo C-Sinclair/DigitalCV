@@ -9,6 +9,8 @@ View the [current master](https://c.sinclair.software/)
 - Svelte
 - RxJS
 - Firebase
+- Snowpack
+- Netlify
 
 ## TODO
 
