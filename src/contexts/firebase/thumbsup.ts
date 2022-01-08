@@ -24,7 +24,13 @@ export const thumbsUp = new BehaviorSubject(0);
  * Fetches the database value of thumbsup
  * Will default to current local value whilst fetching
  */
-const fetch$ = from(getThumbsUp()).pipe(startWith(thumbsUp.getValue()));
+const fetch$ = from(getThumbsUp());
+/**
+ * Call fetch immediately
+ */
+fetch$.subscribe((value) => {
+  thumbsUp.next(value);
+});
 
 /**
  * Simple toggle between whether user has clicked or not
@@ -38,12 +44,12 @@ export const pushThumbsUp = () => pushes.next(true);
  * Monitors both user clicks and current value
  * If clicked, update db with +1 to current
  */
-combineLatest([pushes, thumbsUp.pipe(switchMap(() => fetch$))])
+combineLatest([pushes, thumbsUp])
   .pipe(
     filter(([pushed, _]) => pushed),
     tap(resetPushes),
     map(([_, total]) => total + 1),
-    tap(thumbsUp.next),
-    switchMap((total) => from(updateDoc(ref, { total })))
+    tap((total) => thumbsUp.next(total)),
+    switchMap((total) => from(updateDoc(ref, { total }).then(() => total)))
   )
   .subscribe();
