@@ -1,5 +1,5 @@
 import { storage } from "./firebase";
-import type { storage as Storage } from "firebase";
+import { ref, getDownloadURL, listAll } from "firebase/storage";
 import { writable } from "svelte/store";
 
 interface Shot {
@@ -8,9 +8,6 @@ interface Shot {
 }
 
 const { subscribe, set } = writable<Shot[]>([]);
-
-const getUrl = (item: Storage.Reference): Promise<string> =>
-  item.getDownloadURL();
 
 declare global {
   interface Array<T> {
@@ -23,11 +20,11 @@ Array.prototype.randomOrder = function () {
 };
 
 export const fetchShots = async () => {
-  const res = await storage.ref().child("shots").listAll();
+  const res = await listAll(ref(storage, "shots"));
   const { items } = res;
   const promises = items.map(async (item) => ({
     name: item.name,
-    url: await getUrl(item),
+    url: await getDownloadURL(item),
   }));
   const list = await Promise.all(promises);
   set(list.randomOrder());

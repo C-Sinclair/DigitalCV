@@ -4,30 +4,7 @@
   import Js from "../svg/JS.svelte";
 </script>
 
-<style>
-  .logo {
-    position: fixed;
-    /* position: absolute; */
-    top: 80px;
-    left: 20px;
-    width: 50px;
-  }
-  article {
-    width: 50vw;
-    margin: 10px;
-    padding: 10px 20px;
-    border-radius: 10px;
-    background-color: var(--theme-secondary);
-  }
-  h1 {
-    font-family: "Dancing Script", sans-serif;
-    font-size: 2em;
-    color: var(--theme-trim);
-    margin: 0;
-  }
-</style>
-
-{#if $currentSection === 'JS'}
+{#if $currentSection === "JS"}
   <div in:scale={{ start: 4 }} class="logo">
     <Js />
   </div>
@@ -58,3 +35,26 @@
     developer in the driving seat to be incredibly expressive.
   </p>
 </article>
+
+<style>
+  .logo {
+    position: fixed;
+    /* position: absolute; */
+    top: 80px;
+    left: 20px;
+    width: 50px;
+  }
+  article {
+    width: 50vw;
+    margin: 10px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: var(--theme-secondary);
+  }
+  h1 {
+    font-family: "Dancing Script", sans-serif;
+    font-size: 2em;
+    color: var(--theme-trim);
+    margin: 0;
+  }
+</style>

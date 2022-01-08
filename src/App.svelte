@@ -1,9 +1,25 @@
 <script>
   import { Router, Route } from "svelte-routing";
   import Layout from "./components/Layout.svelte";
-  import { routes } from "./routes";
+  import Home from "./routes/Home.svelte";
+  import Contact from "./routes/Contact.svelte";
+  import NotFound from "./routes/404.svelte";
 
   export let url;
+
+  const routes = [
+    {
+      path: "/",
+      component: Home,
+    },
+    {
+      path: "contact",
+      component: Contact,
+    },
+    {
+      component: NotFound,
+    },
+  ];
 </script>
 
 <Router {url}>

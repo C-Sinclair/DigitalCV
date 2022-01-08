@@ -1,16 +1,16 @@
 import { firestore } from "./firebase";
+import { doc, updateDoc } from "firebase/firestore";
 import { filter, map, startWith, tap } from "rxjs/operators";
 import { docData } from "rxfire/firestore";
-import { BehaviorSubject, combineLatest } from "rxjs";
+import { BehaviorSubject, combineLatest, from } from "rxjs";
 
-const ref = firestore.collection("thumbsup");
-const doc = ref.doc("counter");
+const ref = doc(firestore, "thumbsup", "counter");
 
 interface ThumbsUpCounter {
   total: number;
 }
 
-export const thumbsUp = docData(doc).pipe(
+export const thumbsUp = docData(ref).pipe(
   map<ThumbsUpCounter, number>((doc) => doc.total),
   startWith(0),
   tap(console.log)
@@ -28,6 +28,6 @@ combineLatest([pushes, thumbsUp])
   .pipe(filter(([pushed, _]) => pushed))
   .subscribe(([_, total]) => {
     console.log(`You've hit the subscribe method ${_} ${total}`);
-    doc.update({ total: total + 1 });
+    updateDoc(ref, { total: total + 1 });
     pushes.next(false);
   });

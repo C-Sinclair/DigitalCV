@@ -1,8 +1,8 @@
-import "firebase/storage";
-import "firebase/firestore";
-import firebase from "firebase/app";
+import { getStorage } from "firebase/storage";
+import { getFirestore } from "firebase/firestore/lite";
+import { initializeApp } from "firebase/app";
 
-export const app = firebase.initializeApp({
+export const app = initializeApp({
   apiKey: "AIzaSyC5aZFF_hFoxdvcOL6bz_f7ca2KY7e_u0g",
   authDomain: "digitalcv-ffb40.firebaseapp.com",
   databaseURL: "https://digitalcv-ffb40.firebaseio.com",
@@ -13,5 +13,5 @@ export const app = firebase.initializeApp({
   measurementId: "G-C9WE1R0HVS",
 });
 
-export const firestore = firebase.firestore(app);
-export const storage = firebase.storage(app);
+export const firestore = getFirestore(app);
+export const storage = getStorage(app);
