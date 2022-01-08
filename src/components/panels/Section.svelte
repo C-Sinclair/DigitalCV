@@ -22,6 +22,8 @@
   .wrap {
     max-width: 500px;
     margin: 0 auto;
+    max-height: calc(100vh - 110px);
+    overflow-y: scroll;
   }
   .wrap > :global(h1) {
     font-family: "Dancing Script", sans-serif;
