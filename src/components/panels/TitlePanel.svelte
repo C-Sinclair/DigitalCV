@@ -5,6 +5,13 @@
   export let scrollY = false;
 </script>
 
+<section class:scrolled={scrollY}>
+  <h1 in:fade>Conor Sinclair</h1>
+  <div class="profile" in:scale={{ start: 4, delay: 800, duration: 1400 }}>
+    <RoundedProfileImage />
+  </div>
+</section>
+
 <style>
   section {
     height: 100vw;
@@ -64,17 +71,10 @@
   }
   @media (max-width: 800px) {
     section.scrolled {
-      padding-top: 40px;
+      padding-top: 50px;
     }
     section.scrolled h1 {
       font-size: 1.5em;
     }
   }
 </style>
-
-<section class:scrolled={scrollY}>
-  <h1 in:fade>Conor Sinclair</h1>
-  <div class="profile" in:scale={{ start: 4, delay: 800, duration: 1400 }}>
-    <RoundedProfileImage />
-  </div>
-</section>
