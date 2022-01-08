@@ -14,7 +14,7 @@
   import SwiftIcon from "./languages/Swift.icon.svelte";
   import SwiftContent from "./languages/Swift.svelte";
   import TsIcon from "./languages/Typescript.icon.svelte";
-  import TsContent from "./languages/Typescript.icon.svelte";
+  import TsContent from "./languages/Typescript.svelte";
   import { onDestroy, onMount } from "svelte";
 
   const scaleIn = (n) => ({ start: 4, delay: n * 200 });

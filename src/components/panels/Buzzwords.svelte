@@ -27,6 +27,7 @@
     "Spirited",
     "Collaborative",
     "Thoughtful",
+    "Web",
   ];
   const buzzword = interval(2500).pipe(
     map((i) => buzzwords[i % buzzwords.length]),
