@@ -1,6 +1,6 @@
 import { firestore } from "./firebase";
-import { doc, updateDoc, getDoc } from "firebase/firestore/lite";
-import { filter, startWith, switchMap, map, tap } from "rxjs/operators";
+import { doc, getDoc, updateDoc } from "firebase/firestore/lite";
+import { filter, map, switchMap, tap } from "rxjs/operators";
 import { BehaviorSubject, combineLatest, from } from "rxjs";
 
 const ref = doc(firestore, "thumbsup", "counter");
@@ -50,6 +50,6 @@ combineLatest([pushes, thumbsUp])
     tap(resetPushes),
     map(([_, total]) => total + 1),
     tap((total) => thumbsUp.next(total)),
-    switchMap((total) => from(updateDoc(ref, { total }).then(() => total)))
+    switchMap((total) => from(updateDoc(ref, { total }).then(() => total))),
   )
   .subscribe();

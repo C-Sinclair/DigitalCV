@@ -1,4 +1,3 @@
-import { getStorage } from "firebase/storage";
 import { getFirestore } from "firebase/firestore/lite";
 import { initializeApp } from "firebase/app";
 
@@ -14,4 +13,3 @@ export const app = initializeApp({
 });
 
 export const firestore = getFirestore(app);
-export const storage = getStorage(app);
