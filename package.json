@@ -4,9 +4,7 @@
   "version": "1.0.0",
   "scripts": {
     "start": "snowpack dev",
-    "build": "snowpack build",
-    "test": "jest",
-    "deploy": "firebase deploy"
+    "build": "snowpack build"
   },
   "dependencies": {
     "firebase": "^9.6.2",
@@ -19,11 +17,8 @@
     "@snowpack/plugin-dotenv": "^2.2.0",
     "@snowpack/plugin-svelte": "^3.7.0",
     "@snowpack/plugin-typescript": "^1.2.1",
-    "@testing-library/jest-dom": "^5.16.1",
-    "@testing-library/svelte": "^3.0.3",
     "@tsconfig/svelte": "^3.0.0",
     "@types/node": "^17.0.8",
-    "jest": "^27.4.7",
     "snowpack": "^3.8.8",
     "svelte-check": "^2.2.11",
     "svelte-hmr": "^0.14.9",
