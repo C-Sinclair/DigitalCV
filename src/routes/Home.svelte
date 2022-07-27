@@ -1,9 +1,8 @@
 <script>
   import Buzzwords from "../components/panels/Buzzwords.svelte";
-  import Languages from "../components/panels/Languages.svelte";
-  import Projects from "../components/panels/Projects.svelte";
   import TitlePanel from "../components/panels/Title.svelte";
-  import EndPanel from "../components/panels/End.svelte";
+  import TabSection from "../components/TabSection.svelte";
+
   import { secondsPassed } from "../util/timer";
 
   let scrollY = 0;
@@ -25,14 +24,7 @@
   </div>
 {/if}
 
-<Languages />
-
-<Projects />
-
-<EndPanel />
-
-<section />
-<section />
+<!-- <TabSection /> -->
 
 <style>
   section {

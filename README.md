@@ -7,7 +7,5 @@ View the [current master](https://c.sinclair.software/)
 ## Tooling
 
 - Svelte
-- RxJS
 - Firebase
-- Snowpack
 - Netlify
