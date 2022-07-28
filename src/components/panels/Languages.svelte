@@ -1,8 +1,7 @@
 <script>
-  import { scale, fade, crossfade } from "svelte/transition";
+  import { scale, crossfade } from "svelte/transition";
   import { quintOut } from "svelte/easing";
 
-  import Section from "./Section.svelte";
   import JsIcon from "./languages/Javascript.icon.svelte";
   import JsContent from "./languages/Javascript.svelte";
   import ElixirIcon from "./languages/Elixir.icon.svelte";
@@ -109,16 +108,7 @@
   });
 </script>
 
-<Section {name}>
-  <h1 in:fade out:fade>Programming Fluency</h1>
-  <p>
-    I have a fascination with programming languages. Nothing gives me more joy
-    than learning and mastering new paradigms and technologies.
-  </p>
-  <p>
-    Here is a selection of languages/frameworks I have the most technical
-    experience in.
-  </p>
+<article>
   {#if selected}
     <div id="details" bind:this={details}>
       <div in:receive={{ key: selected.name }} class="icon">
@@ -142,7 +132,7 @@
       {/each}
     </ul>
   {/if}
-</Section>
+</article>
 
 <style>
   ul {

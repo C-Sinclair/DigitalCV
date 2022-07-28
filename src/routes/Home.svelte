@@ -6,6 +6,7 @@
   import { secondsPassed } from "../util/timer";
 
   let scrollY = 0;
+  let hasScrolled = false;
 
   const twoSecsPassed = secondsPassed(2.5);
 </script>
@@ -14,27 +15,24 @@
   <title>C Sinclair Curriclum Vitae</title>
 </svelte:head>
 
-<svelte:window bind:scrollY />
+<svelte:window
+  on:mousewheel={(e) => {
+    scrollY += e.deltaY;
+    hasScrolled = scrollY > 0;
+  }}
+/>
 
-<TitlePanel {scrollY} />
+<TitlePanel {hasScrolled} />
 
-{#if scrollY > 10 || $twoSecsPassed !== false}
+{#if hasScrolled || $twoSecsPassed !== false}
   <div id="buzzwords">
-    <Buzzwords {scrollY} />
+    <Buzzwords {scrollY} {hasScrolled} />
   </div>
 {/if}
 
-<!-- <TabSection /> -->
+<TabSection {hasScrolled} />
 
 <style>
-  section {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-  }
   #buzzwords {
     display: flex;
     width: 100vw;

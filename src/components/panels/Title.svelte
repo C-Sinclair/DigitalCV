@@ -2,10 +2,10 @@
   import { scale, fade } from "svelte/transition";
   import RoundedProfileImage from "../RoundedProfileImage.svelte";
 
-  export let scrollY = false;
+  export let hasScrolled = false;
 </script>
 
-<section class:scrolled={scrollY}>
+<section class:scrolled={hasScrolled}>
   <h1 in:fade>Conor Sinclair</h1>
   <div class="profile" in:scale={{ start: 4, delay: 800, duration: 1400 }}>
     <RoundedProfileImage />
@@ -27,6 +27,7 @@
 
   section.scrolled {
     padding-top: 0;
+    height: unset;
   }
 
   h1 {

@@ -37,29 +37,27 @@
     })
   );
 
-  export let scrollY = 0;
+  export let hasScrolled = false;
 </script>
 
-{#if scrollY < 200}
+{#if !hasScrolled}
   <article in:fade={{ delay: 400 }} out:fade>
-    <p class:scrolled={scrollY >= 100}>A</p>
-    {#if scrollY < 100}
-      <span out:scale={{ x: 0 }}>
-        {#key unique}
-          <h6
-            in:fly={{ y: -100, delay: 500, duration: 200 }}
-            out:fly={{ y: 100, duration: 400 }}
-          >
-            {$buzzword}
-          </h6>
-        {/key}
-      </span>
-    {/if}
-    <p class:scrolled={scrollY >= 100}>Developer</p>
+    <p class:scrolled={hasScrolled}>A</p>
+    <span out:scale={{ x: 0 }}>
+      {#key unique}
+        <h6
+          in:fly={{ y: -100, delay: 500, duration: 200 }}
+          out:fly={{ y: 100, duration: 400 }}
+        >
+          {$buzzword}
+        </h6>
+      {/key}
+    </span>
+    <p class:scrolled={hasScrolled}>Developer</p>
   </article>
 {/if}
 
-{#if scrollY > 250}
+{#if hasScrolled}
   <span in:fade={{ delay: 400 }} out:scale={{ x: 0 }} class="navBar">
     {#key unique}
       <h6
