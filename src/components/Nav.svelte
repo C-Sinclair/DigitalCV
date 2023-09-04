@@ -32,7 +32,7 @@
         </Link>
       </li>
       <li in:fly={{ y: -50, delay: 800 }} out:fly={{ y: -50 }}>
-        <a href="https://blog.sinclair.software"> Blog </a>
+        <a href="https://sinclair.software"> Blog </a>
       </li>
     </ul>
     <ThemeButton />

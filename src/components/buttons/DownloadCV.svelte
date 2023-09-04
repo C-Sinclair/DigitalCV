@@ -3,7 +3,7 @@
 </script>
 
 <a
-  href="/C-Sinclair-CV-2022.pdf"
+  href="/C-Sinclair-CV-2023.pdf"
   download
   title="Download PDF version"
   in:fly={{ y: -50, delay: 1600 }}
