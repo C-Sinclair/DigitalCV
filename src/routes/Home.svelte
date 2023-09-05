@@ -1,9 +1,9 @@
 <script>
+  import { fade } from "svelte/transition";
   import Buzzwords from "../components/panels/Buzzwords.svelte";
   import Languages from "../components/panels/Languages.svelte";
-  import Projects from "../components/panels/Projects.svelte";
+  import Projects from "../components/panels/projects/Projects.svelte";
   import TitlePanel from "../components/panels/Title.svelte";
-  import EndPanel from "../components/panels/End.svelte";
   import { secondsPassed } from "../util/timer";
 
   let scrollY = 0;
@@ -18,6 +18,7 @@
 <svelte:window bind:scrollY />
 
 <TitlePanel {scrollY} />
+<section />
 
 {#if scrollY > 10 || $twoSecsPassed !== false}
   <div id="buzzwords">
@@ -29,13 +30,21 @@
 
 <Projects />
 
-<EndPanel />
+<section class="content">
+  <h1 in:fade out:fade>Like what you see?</h1>
+  <p>Why not get in contact?</p>
+  <p>
+    I'm always open to collaborate, discuss and educate other human animals in
+    their own adventures in technology.
+  </p>
+  <a href="mailto: conor@sinclair.software">Ping me an email</a>
+</section>
 
 <section />
 <section />
 
 <style>
-  section {
+  section:not(.content) {
     width: 100vw;
     height: 100vh;
     display: flex;

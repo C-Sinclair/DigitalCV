@@ -1,0 +1,12 @@
+section.content {
+  min-height: 60vh;
+  max-width: 80ch;
+  margin: 0 auto;
+}
+
+section.content > h1 {
+  font-family: "Dancing Script", sans-serif;
+  font-size: 2em;
+  color: var(--theme-trim);
+  margin: 0 0 15px;
+}

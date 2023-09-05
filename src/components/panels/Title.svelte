@@ -14,12 +14,12 @@
 
 <style>
   section {
-    height: 100vw;
+    height: auto;
     width: 100vw;
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: sticky;
+    position: fixed;
     top: 0;
     padding-top: 16vh;
     transition: all 1s ease;

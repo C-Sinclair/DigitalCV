@@ -2,7 +2,6 @@
   import { scale, fade, crossfade } from "svelte/transition";
   import { quintOut } from "svelte/easing";
 
-  import Section from "./Section.svelte";
   import JsIcon from "./languages/Javascript.icon.svelte";
   import JsContent from "./languages/Javascript.svelte";
   import ElixirIcon from "./languages/Elixir.icon.svelte";
@@ -52,8 +51,6 @@
       content: SwiftContent,
     },
   ];
-
-  const name = "Programming";
 
   let selected;
   /**
@@ -109,7 +106,7 @@
   });
 </script>
 
-<Section {name}>
+<section class="content">
   <h1 in:fade out:fade>Programming Fluency</h1>
   <p>
     I have a fascination with programming languages. Nothing gives me more joy
@@ -142,7 +139,7 @@
       {/each}
     </ul>
   {/if}
-</Section>
+</section>
 
 <style>
   ul {
