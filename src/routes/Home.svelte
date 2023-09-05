@@ -40,9 +40,6 @@
   <a href="mailto: conor@sinclair.software">Ping me an email</a>
 </section>
 
-<section />
-<section />
-
 <style>
   section:not(.content) {
     width: 100vw;
